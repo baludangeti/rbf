@@ -1,0 +1,12 @@
+D:\Products\rbf-erp\product\api-gateway\src\main\java\com\rbf\product\gateway\ApiGatewayApplication.java
+D:\Products\rbf-erp\product\api-gateway\src\main\java\com\rbf\product\gateway\filter\JwtUtil.java
+D:\Products\rbf-erp\product\api-gateway\src\main\java\com\rbf\product\gateway\routing\ResolvedRoute.java
+D:\Products\rbf-erp\product\api-gateway\src\main\java\com\rbf\product\gateway\routing\RouteResolver.java
+D:\Products\rbf-erp\product\api-gateway\src\main\java\com\rbf\product\gateway\controller\GatewayProxyController.java
+D:\Products\rbf-erp\product\api-gateway\src\main\java\com\rbf\product\gateway\config\GatewayRoutesProperties.java
+D:\Products\rbf-erp\product\api-gateway\src\main\java\com\rbf\product\gateway\filter\JwtClaims.java
+D:\Products\rbf-erp\product\api-gateway\src\main\java\com\rbf\product\gateway\filter\JwtValidationFilter.java
+D:\Products\rbf-erp\product\api-gateway\src\main\java\com\rbf\product\gateway\routing\GatewayRoutingService.java
+D:\Products\rbf-erp\product\api-gateway\src\main\java\com\rbf\product\gateway\config\SecurityConfig.java
+D:\Products\rbf-erp\product\api-gateway\src\main\java\com\rbf\product\gateway\filter\MessageDigestUtil.java
+D:\Products\rbf-erp\product\api-gateway\src\main\java\com\rbf\product\gateway\config\RestTemplateConfig.java

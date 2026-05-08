@@ -1,0 +1,50 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: billing-service
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/rbf_billing_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:balu123#}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: ${JPA_DDL_AUTO:update}
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+services:
+  product-service:
+    base-url: http://localhost:8083
+  inventory-service:
+    base-url: http://localhost:8084
+  payment-service:
+    base-url: http://localhost:8086
+  accounting-service:
+    base-url: http://localhost:8087
+  customer-credit-service:
+    base-url: http://localhost:9111
+  tax-service:
+    base-url: http://localhost:8089
+
+invoice:
+  company:
+    name: RBF Retail Pvt Ltd
+    address: 1 Retail Street, Bengaluru, Karnataka, India
+    phone: "+91-9000000000"
+    email: accounts@rbf-retail.local
+    gstin: 29ABCDE1234F1Z5

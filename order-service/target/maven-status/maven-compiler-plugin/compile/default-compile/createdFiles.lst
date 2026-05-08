@@ -1,0 +1,8 @@
+com\rbf\product\order\controller\CustomerOrderController.class
+com\rbf\product\order\client\ProductClient.class
+com\rbf\product\order\client\ProductResponse.class
+com\rbf\product\order\service\CustomerOrderService.class
+com\rbf\product\order\repository\CustomerOrderRepository.class
+com\rbf\product\order\model\CustomerOrder.class
+com\rbf\product\order\model\CreateOrderRequest.class
+com\rbf\product\order\OrderServiceApplication.class

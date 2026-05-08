@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: order-service
+  datasource:
+    url: jdbc:h2:file:./data/order-db;AUTO_SERVER=TRUE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+server:
+  port: 9103
+services:
+  product-service:
+    base-url: http://localhost:9102

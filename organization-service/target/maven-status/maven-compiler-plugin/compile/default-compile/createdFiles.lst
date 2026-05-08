@@ -1,0 +1,15 @@
+com\rbf\product\organization\repository\OrganizationRepository.class
+com\rbf\product\organization\controller\OrganizationSettingsController.class
+com\rbf\product\organization\service\OrganizationService.class
+com\rbf\product\organization\OrganizationServiceApplication.class
+com\rbf\product\organization\repository\UserPreferenceSettingRepository.class
+com\rbf\product\organization\repository\StoreBranchRepository.class
+com\rbf\product\organization\model\PaymentModeSetting.class
+com\rbf\product\organization\model\UserPreferenceSetting.class
+com\rbf\product\organization\controller\OrganizationController.class
+com\rbf\product\organization\service\DefaultRoleSeedClient.class
+com\rbf\product\organization\repository\PaymentModeSettingRepository.class
+com\rbf\product\organization\model\Organization.class
+com\rbf\product\organization\model\StoreBranch.class
+com\rbf\product\organization\config\RestTemplateConfig.class
+com\rbf\product\organization\service\OrganizationSettingsService.class

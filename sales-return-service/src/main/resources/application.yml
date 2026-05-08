@@ -1,0 +1,25 @@
+server:
+  port: 9110
+
+spring:
+  application:
+    name: sales-return-service
+  datasource:
+    url: jdbc:h2:file:./data/sales-return-db;AUTO_SERVER=TRUE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+services:
+  billing-service:
+    base-url: http://localhost:9105
+  inventory-service:
+    base-url: http://localhost:9106
+  payment-service:
+    base-url: http://localhost:9108
+  accounting-service:
+    base-url: http://localhost:9107

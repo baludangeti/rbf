@@ -1,0 +1,510 @@
+services:
+  api-gateway:
+    build:
+      context: .
+      dockerfile: api-gateway/Dockerfile
+    container_name: rbf-api-gateway
+    ports:
+      - "9100:9100"
+    environment:
+      GATEWAY_JWT_SECRET: change-this-secret-to-at-least-32-characters
+      GATEWAY_ROUTES_AUTH_TARGET_URL: http://auth-service:9104/api/auth
+      GATEWAY_ROUTES_PRODUCTS_TARGET_URL: http://product-service:9102/api/products
+      GATEWAY_ROUTES_BILLING_TARGET_URL: http://billing-service:9105/api/billing
+      GATEWAY_ROUTES_INVENTORY_TARGET_URL: http://inventory-service:9106/api/inventory
+      GATEWAY_ROUTES_PURCHASES_TARGET_URL: http://purchase-service:9109/api/purchases
+      GATEWAY_ROUTES_SALES_RETURNS_TARGET_URL: http://sales-return-service:9110/api/sales-returns
+      GATEWAY_ROUTES_CUSTOMER_CREDITS_TARGET_URL: http://customer-credit-service:9111/api/customer-credits
+      GATEWAY_ROUTES_TAX_TARGET_URL: http://tax-service:9112/tax
+      GATEWAY_ROUTES_REPORTS_TARGET_URL: http://report-service:9113/api/reports
+      GATEWAY_ROUTES_ACCOUNTING_TARGET_URL: http://accounting-service:9107/api/accounting
+    depends_on:
+      - auth-service
+      - product-service
+      - billing-service
+      - inventory-service
+      - payment-service
+      - tax-service
+      - report-service
+    networks:
+      - rbf-network
+
+  auth-service:
+    build:
+      context: .
+      dockerfile: auth-service/Dockerfile
+    container_name: rbf-auth-service
+    ports:
+      - "9104:9104"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://auth-mysql:3306/rbf_auth?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: rbf
+      SPRING_DATASOURCE_PASSWORD: rbf_password
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.MySQLDialect
+      JWT_SECRET: change-this-secret-to-at-least-32-characters
+      JWT_EXPIRATION_MINUTES: 480
+    depends_on:
+      auth-mysql:
+        condition: service_healthy
+    networks:
+      - rbf-network
+
+  auth-mysql:
+    image: mysql:8.0
+    container_name: rbf-auth-mysql
+    environment:
+      MYSQL_DATABASE: rbf_auth
+      MYSQL_USER: rbf
+      MYSQL_PASSWORD: rbf_password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - auth-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_password"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - rbf-network
+
+  organization-service:
+    build:
+      context: .
+      dockerfile: organization-service/Dockerfile
+    container_name: rbf-organization-service
+    ports:
+      - "9101:9101"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://organization-mysql:3306/rbf_organization?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: rbf
+      SPRING_DATASOURCE_PASSWORD: rbf_password
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.MySQLDialect
+      SERVICES_AUTH_SERVICE_BASE_URL: http://auth-service:9104
+    depends_on:
+      organization-mysql:
+        condition: service_healthy
+      auth-service:
+        condition: service_started
+    networks:
+      - rbf-network
+
+  organization-mysql:
+    image: mysql:8.0
+    container_name: rbf-organization-mysql
+    environment:
+      MYSQL_DATABASE: rbf_organization
+      MYSQL_USER: rbf
+      MYSQL_PASSWORD: rbf_password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - organization-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_password"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - rbf-network
+
+  product-service:
+    build:
+      context: .
+      dockerfile: product-service/Dockerfile
+    container_name: rbf-product-service
+    ports:
+      - "9102:9102"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://product-mysql:3306/rbf_product?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: rbf
+      SPRING_DATASOURCE_PASSWORD: rbf_password
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.MySQLDialect
+    depends_on:
+      product-mysql:
+        condition: service_healthy
+    networks:
+      - rbf-network
+
+  product-mysql:
+    image: mysql:8.0
+    container_name: rbf-product-mysql
+    environment:
+      MYSQL_DATABASE: rbf_product
+      MYSQL_USER: rbf
+      MYSQL_PASSWORD: rbf_password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - product-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_password"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - rbf-network
+
+  order-service:
+    build:
+      context: .
+      dockerfile: order-service/Dockerfile
+    container_name: rbf-order-service
+    ports:
+      - "9103:9103"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://order-mysql:3306/rbf_order?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: rbf
+      SPRING_DATASOURCE_PASSWORD: rbf_password
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.MySQLDialect
+      SERVICES_PRODUCT_SERVICE_BASE_URL: http://product-service:9102
+    depends_on:
+      order-mysql:
+        condition: service_healthy
+      product-service:
+        condition: service_started
+    networks:
+      - rbf-network
+
+  order-mysql:
+    image: mysql:8.0
+    container_name: rbf-order-mysql
+    environment:
+      MYSQL_DATABASE: rbf_order
+      MYSQL_USER: rbf
+      MYSQL_PASSWORD: rbf_password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - order-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_password"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - rbf-network
+
+  billing-service:
+    build:
+      context: .
+      dockerfile: billing-service/Dockerfile
+    container_name: rbf-billing-service
+    ports:
+      - "9105:9105"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://billing-mysql:3306/rbf_billing?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: rbf
+      SPRING_DATASOURCE_PASSWORD: rbf_password
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.MySQLDialect
+      SERVICES_PRODUCT_SERVICE_BASE_URL: http://product-service:9102
+      SERVICES_INVENTORY_SERVICE_BASE_URL: http://inventory-service:9106
+      SERVICES_PAYMENT_SERVICE_BASE_URL: http://payment-service:9108
+      SERVICES_ACCOUNTING_SERVICE_BASE_URL: http://accounting-service:9107
+      SERVICES_CUSTOMER_CREDIT_SERVICE_BASE_URL: http://customer-credit-service:9111
+      SERVICES_TAX_SERVICE_BASE_URL: http://tax-service:9112
+    depends_on:
+      billing-mysql:
+        condition: service_healthy
+      product-service:
+        condition: service_started
+      inventory-service:
+        condition: service_started
+      payment-service:
+        condition: service_started
+      customer-credit-service:
+        condition: service_started
+      tax-service:
+        condition: service_started
+    networks:
+      - rbf-network
+
+  billing-mysql:
+    image: mysql:8.0
+    container_name: rbf-billing-mysql
+    environment:
+      MYSQL_DATABASE: rbf_billing
+      MYSQL_USER: rbf
+      MYSQL_PASSWORD: rbf_password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - billing-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_password"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - rbf-network
+
+  inventory-service:
+    build:
+      context: .
+      dockerfile: inventory-service/Dockerfile
+    container_name: rbf-inventory-service
+    ports:
+      - "9106:9106"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://inventory-mysql:3306/rbf_inventory?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: rbf
+      SPRING_DATASOURCE_PASSWORD: rbf_password
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.MySQLDialect
+    depends_on:
+      inventory-mysql:
+        condition: service_healthy
+    networks:
+      - rbf-network
+
+  inventory-mysql:
+    image: mysql:8.0
+    container_name: rbf-inventory-mysql
+    environment:
+      MYSQL_DATABASE: rbf_inventory
+      MYSQL_USER: rbf
+      MYSQL_PASSWORD: rbf_password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - inventory-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_password"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - rbf-network
+
+  payment-service:
+    build:
+      context: .
+      dockerfile: payment-service/Dockerfile
+    container_name: rbf-payment-service
+    ports:
+      - "9108:9108"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://payment-mysql:3306/rbf_payment?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: rbf
+      SPRING_DATASOURCE_PASSWORD: rbf_password
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.MySQLDialect
+    depends_on:
+      payment-mysql:
+        condition: service_healthy
+    networks:
+      - rbf-network
+
+  payment-mysql:
+    image: mysql:8.0
+    container_name: rbf-payment-mysql
+    environment:
+      MYSQL_DATABASE: rbf_payment
+      MYSQL_USER: rbf
+      MYSQL_PASSWORD: rbf_password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - payment-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_password"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - rbf-network
+
+  purchase-service:
+    build:
+      context: .
+      dockerfile: purchase-service/Dockerfile
+    container_name: rbf-purchase-service
+    ports:
+      - "9109:9109"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://purchase-mysql:3306/rbf_purchase?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: rbf
+      SPRING_DATASOURCE_PASSWORD: rbf_password
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.MySQLDialect
+      SERVICES_INVENTORY_SERVICE_BASE_URL: http://inventory-service:9106
+    depends_on:
+      purchase-mysql:
+        condition: service_healthy
+      inventory-service:
+        condition: service_started
+    networks:
+      - rbf-network
+
+  purchase-mysql:
+    image: mysql:8.0
+    container_name: rbf-purchase-mysql
+    environment:
+      MYSQL_DATABASE: rbf_purchase
+      MYSQL_USER: rbf
+      MYSQL_PASSWORD: rbf_password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - purchase-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_password"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - rbf-network
+
+  sales-return-service:
+    build:
+      context: .
+      dockerfile: sales-return-service/Dockerfile
+    container_name: rbf-sales-return-service
+    ports:
+      - "9110:9110"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://sales-return-mysql:3306/rbf_sales_return?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: rbf
+      SPRING_DATASOURCE_PASSWORD: rbf_password
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.MySQLDialect
+      SERVICES_BILLING_SERVICE_BASE_URL: http://billing-service:9105
+      SERVICES_INVENTORY_SERVICE_BASE_URL: http://inventory-service:9106
+      SERVICES_PAYMENT_SERVICE_BASE_URL: http://payment-service:9108
+      SERVICES_ACCOUNTING_SERVICE_BASE_URL: http://accounting-service:9107
+    depends_on:
+      sales-return-mysql:
+        condition: service_healthy
+      billing-service:
+        condition: service_started
+      inventory-service:
+        condition: service_started
+      payment-service:
+        condition: service_started
+    networks:
+      - rbf-network
+
+  sales-return-mysql:
+    image: mysql:8.0
+    container_name: rbf-sales-return-mysql
+    environment:
+      MYSQL_DATABASE: rbf_sales_return
+      MYSQL_USER: rbf
+      MYSQL_PASSWORD: rbf_password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - sales-return-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_password"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - rbf-network
+
+  customer-credit-service:
+    build:
+      context: .
+      dockerfile: customer-credit-service/Dockerfile
+    container_name: rbf-customer-credit-service
+    ports:
+      - "9111:9111"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://customer-credit-mysql:3306/rbf_customer_credit?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: rbf
+      SPRING_DATASOURCE_PASSWORD: rbf_password
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.MySQLDialect
+    depends_on:
+      customer-credit-mysql:
+        condition: service_healthy
+    networks:
+      - rbf-network
+
+  customer-credit-mysql:
+    image: mysql:8.0
+    container_name: rbf-customer-credit-mysql
+    environment:
+      MYSQL_DATABASE: rbf_customer_credit
+      MYSQL_USER: rbf
+      MYSQL_PASSWORD: rbf_password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - customer-credit-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_password"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - rbf-network
+
+  tax-service:
+    build:
+      context: .
+      dockerfile: tax-service/Dockerfile
+    container_name: rbf-tax-service
+    ports:
+      - "9112:9112"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://tax-mysql:3306/rbf_tax?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: rbf
+      SPRING_DATASOURCE_PASSWORD: rbf_password
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.MySQLDialect
+    depends_on:
+      tax-mysql:
+        condition: service_healthy
+    networks:
+      - rbf-network
+
+  tax-mysql:
+    image: mysql:8.0
+    container_name: rbf-tax-mysql
+    environment:
+      MYSQL_DATABASE: rbf_tax
+      MYSQL_USER: rbf
+      MYSQL_PASSWORD: rbf_password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - tax-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_password"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - rbf-network
+
+  report-service:
+    build:
+      context: .
+      dockerfile: report-service/Dockerfile
+    container_name: rbf-report-service
+    ports:
+      - "9113:9113"
+    environment:
+      SERVICES_BILLING_SERVICE_BASE_URL: http://billing-service:9105
+      SERVICES_INVENTORY_SERVICE_BASE_URL: http://inventory-service:9106
+      SERVICES_ACCOUNTING_SERVICE_BASE_URL: http://accounting-service:9107
+      SERVICES_PAYMENT_SERVICE_BASE_URL: http://payment-service:9108
+    depends_on:
+      - billing-service
+      - inventory-service
+      - payment-service
+    networks:
+      - rbf-network
+
+networks:
+  rbf-network:
+    driver: bridge
+
+volumes:
+  auth-mysql-data:
+  organization-mysql-data:
+  product-mysql-data:
+  order-mysql-data:
+  billing-mysql-data:
+  inventory-mysql-data:
+  payment-mysql-data:
+  purchase-mysql-data:
+  sales-return-mysql-data:
+  customer-credit-mysql-data:
+  tax-mysql-data:

@@ -1,0 +1,81 @@
+.app-loader-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1080;
+    display: grid;
+    place-items: center;
+    background: rgba(15, 23, 42, 0.28);
+}
+
+.app-loader-panel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 180px;
+    padding: 16px 18px;
+    color: var(--console-text, #1f2933);
+    background: #ffffff;
+    border: 1px solid var(--console-border, #d9dee5);
+    border-radius: 8px;
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.16);
+}
+
+.app-breadcrumb .breadcrumb {
+    --bs-breadcrumb-divider-color: #98a2b3;
+    font-size: 13px;
+}
+
+.app-breadcrumb a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.app-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.app-pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+
+.app-toast {
+    border: 0;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+}
+
+.required-label::after {
+    content: " *";
+    color: #dc3545;
+}
+
+.form-hint {
+    color: var(--console-muted, #667085);
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.table-empty-state {
+    padding: 24px;
+    color: var(--console-muted, #667085);
+    text-align: center;
+}
+
+.money-value {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.action-cell {
+    white-space: nowrap;
+    text-align: right;
+}
+
+@media print {
+    .app-loader-backdrop,
+    .toast-container,
+    #appConfirmModal {
+        display: none !important;
+    }
+}

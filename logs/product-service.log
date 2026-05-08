@@ -1,0 +1,51 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2026-05-08T20:31:17.794+05:30  INFO 15156 --- [product-service] [           main] c.r.p.catalog.ProductServiceApplication  : Starting ProductServiceApplication using Java 17.0.10 with PID 15156 (D:\Products\rbf-erp\product\product-service\target\product-service-0.0.1-SNAPSHOT.jar started by balud in D:\Products\rbf-erp\product)
+2026-05-08T20:31:17.829+05:30  INFO 15156 --- [product-service] [           main] c.r.p.catalog.ProductServiceApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-05-08T20:31:26.476+05:30  INFO 15156 --- [product-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-08T20:31:26.956+05:30  INFO 15156 --- [product-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 404 ms. Found 3 JPA repository interfaces.
+2026-05-08T20:31:32.410+05:30  INFO 15156 --- [product-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2026-05-08T20:31:32.476+05:30  INFO 15156 --- [product-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-08T20:31:32.480+05:30  INFO 15156 --- [product-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-05-08T20:31:32.783+05:30  INFO 15156 --- [product-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-05-08T20:31:32.801+05:30  INFO 15156 --- [product-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 14208 ms
+2026-05-08T20:31:35.482+05:30  INFO 15156 --- [product-service] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-08T20:31:36.046+05:30  INFO 15156 --- [product-service] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-05-08T20:31:36.341+05:30  INFO 15156 --- [product-service] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-05-08T20:31:38.139+05:30  INFO 15156 --- [product-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-08T20:31:38.480+05:30  INFO 15156 --- [product-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-08T20:31:39.445+05:30  INFO 15156 --- [product-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3909a854
+2026-05-08T20:31:39.461+05:30  INFO 15156 --- [product-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-08T20:31:39.706+05:30  WARN 15156 --- [product-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-08T20:31:41.557+05:30  INFO 15156 --- [product-service] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-08T20:31:41.691+05:30  INFO 15156 --- [product-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-08T20:31:44.072+05:30  INFO 15156 --- [product-service] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-08T20:31:48.278+05:30  WARN 15156 --- [product-service] [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 5aed042c-d53d-4e08-a2e6-38950ade001f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-08T20:31:49.359+05:30  INFO 15156 --- [product-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2026-05-08T20:31:49.468+05:30  INFO 15156 --- [product-service] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5a1e47d3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2e13c72b, org.springframework.security.web.context.SecurityContextHolderFilter@3df88e84, org.springframework.security.web.header.HeaderWriterFilter@23fb943e, org.springframework.web.filter.CorsFilter@4bedd2d8, org.springframework.security.web.authentication.logout.LogoutFilter@504862b5, com.rbf.product.common.security.SharedJwtAuthenticationFilter@43c39321, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7ffdded5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2fc6e673, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@14cd3858, org.springframework.security.web.session.SessionManagementFilter@44b5a87a, org.springframework.security.web.access.ExceptionTranslationFilter@42343f6d, org.springframework.security.web.access.intercept.AuthorizationFilter@6415a53d]
+2026-05-08T20:31:50.892+05:30  INFO 15156 --- [product-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path ''
+2026-05-08T20:31:50.928+05:30  INFO 15156 --- [product-service] [           main] c.r.p.catalog.ProductServiceApplication  : Started ProductServiceApplication in 36.335 seconds (process running for 38.747)
+2026-05-08T20:33:37.374+05:30  INFO 15156 --- [product-service] [nio-8083-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-08T20:33:37.378+05:30  INFO 15156 --- [product-service] [nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-08T20:33:37.402+05:30  INFO 15156 --- [product-service] [nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 17 ms
+2026-05-08T20:33:37.494+05:30  INFO 15156 --- [product-service] [nio-8083-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-08T20:33:37.557+05:30  WARN 15156 --- [product-service] [nio-8083-exec-2] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/actuator/health' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2026-05-08T20:33:38.144+05:30  INFO 15156 --- [product-service] [nio-8083-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=650 orgId=null
+2026-05-08T20:35:49.271+05:30  INFO 15156 --- [product-service] [nio-8083-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-08T20:35:49.299+05:30  INFO 15156 --- [product-service] [nio-8083-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=27 orgId=null
+2026-05-08T20:36:00.107+05:30  INFO 15156 --- [product-service] [nio-8083-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-08T20:36:00.117+05:30  INFO 15156 --- [product-service] [nio-8083-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=10 orgId=null
+2026-05-08T20:36:39.198+05:30  INFO 15156 --- [product-service] [nio-8083-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-08T20:36:39.217+05:30  INFO 15156 --- [product-service] [nio-8083-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=20 orgId=null

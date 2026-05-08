@@ -1,0 +1,3 @@
+com.rbf.product.common.exception.GlobalExceptionHandlingAutoConfiguration
+com.rbf.product.common.security.SharedSecurityAutoConfiguration
+com.rbf.product.common.logging.LoggingAutoConfiguration

@@ -1,0 +1,14 @@
+com\rbf\product\gateway\config\RestTemplateConfig.class
+com\rbf\product\gateway\config\SecurityConfig.class
+com\rbf\product\gateway\controller\GatewayProxyController.class
+com\rbf\product\gateway\filter\JwtUtil.class
+com\rbf\product\gateway\routing\RouteResolver.class
+com\rbf\product\gateway\routing\GatewayRoutingService.class
+com\rbf\product\gateway\filter\MessageDigestUtil.class
+com\rbf\product\gateway\ApiGatewayApplication.class
+com\rbf\product\gateway\config\GatewayRoutesProperties$Jwt.class
+com\rbf\product\gateway\routing\ResolvedRoute.class
+com\rbf\product\gateway\config\GatewayRoutesProperties.class
+com\rbf\product\gateway\config\GatewayRoutesProperties$Route.class
+com\rbf\product\gateway\filter\JwtClaims.class
+com\rbf\product\gateway\filter\JwtValidationFilter.class

@@ -1,0 +1,13 @@
+com\rbf\product\catalog\controller\ProductController.class
+com\rbf\product\catalog\model\ProductCategory.class
+com\rbf\product\catalog\service\ProductCategoryService.class
+com\rbf\product\catalog\model\Product.class
+com\rbf\product\catalog\repository\ProductCategoryRepository.class
+com\rbf\product\catalog\repository\ProductBrandRepository.class
+com\rbf\product\catalog\model\ProductBrand.class
+com\rbf\product\catalog\controller\ProductCategoryController.class
+com\rbf\product\catalog\ProductServiceApplication.class
+com\rbf\product\catalog\service\ProductBrandService.class
+com\rbf\product\catalog\service\ProductService.class
+com\rbf\product\catalog\controller\ProductBrandController.class
+com\rbf\product\catalog\repository\ProductRepository.class
