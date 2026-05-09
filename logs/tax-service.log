@@ -7,46 +7,289 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.0)
 
-2026-05-08T20:25:16.727+05:30  INFO 2768 --- [tax-service] [           main] c.rbf.product.tax.TaxServiceApplication  : Starting TaxServiceApplication using Java 17.0.10 with PID 2768 (D:\Products\rbf-erp\product\tax-service\target\tax-service-0.0.1-SNAPSHOT.jar started by balud in D:\Products\rbf-erp\product)
-2026-05-08T20:25:16.874+05:30  INFO 2768 --- [tax-service] [           main] c.rbf.product.tax.TaxServiceApplication  : No active profile set, falling back to 1 default profile: "default"
-2026-05-08T20:25:55.912+05:30  INFO 2768 --- [tax-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-05-08T20:25:57.940+05:30  INFO 2768 --- [tax-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1785 ms. Found 7 JPA repository interfaces.
-2026-05-08T20:27:02.379+05:30  INFO 2768 --- [tax-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8089 (http)
-2026-05-08T20:27:02.906+05:30  INFO 2768 --- [tax-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-05-08T20:27:02.913+05:30  INFO 2768 --- [tax-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
-2026-05-08T20:27:06.169+05:30  INFO 2768 --- [tax-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-05-08T20:27:06.215+05:30  INFO 2768 --- [tax-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 106643 ms
-2026-05-08T20:27:28.263+05:30  INFO 2768 --- [tax-service] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-05-08T20:27:29.455+05:30  INFO 2768 --- [tax-service] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
-2026-05-08T20:27:29.884+05:30  INFO 2768 --- [tax-service] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-05-08T20:27:34.631+05:30  INFO 2768 --- [tax-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-05-08T20:27:35.279+05:30  INFO 2768 --- [tax-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-05-08T20:27:40.600+05:30  INFO 2768 --- [tax-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@c0004b7
-2026-05-08T20:27:40.638+05:30  INFO 2768 --- [tax-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-05-08T20:27:42.878+05:30  WARN 2768 --- [tax-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-05-08T20:27:59.950+05:30  INFO 2768 --- [tax-service] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-05-08T20:28:02.349+05:30  INFO 2768 --- [tax-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-05-08T20:28:23.332+05:30  WARN 2768 --- [tax-service] [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+2026-05-09T16:12:23.221+05:30  INFO 11980 --- [tax-service] [           main] c.rbf.product.tax.TaxServiceApplication  : Starting TaxServiceApplication using Java 17.0.10 with PID 11980 (D:\Products\rbf-erp\product\tax-service\target\tax-service-0.0.1-SNAPSHOT.jar started by balud in D:\Products\rbf-erp\product)
+2026-05-09T16:12:23.252+05:30  INFO 11980 --- [tax-service] [           main] c.rbf.product.tax.TaxServiceApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T16:12:42.198+05:30  INFO 11980 --- [tax-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09T16:12:43.317+05:30  INFO 11980 --- [tax-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1022 ms. Found 7 JPA repository interfaces.
+2026-05-09T16:13:07.854+05:30  INFO 11980 --- [tax-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8089 (http)
+2026-05-09T16:13:07.956+05:30  INFO 11980 --- [tax-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T16:13:07.958+05:30  INFO 11980 --- [tax-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-05-09T16:13:09.177+05:30  INFO 11980 --- [tax-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-05-09T16:13:09.223+05:30  INFO 11980 --- [tax-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 44412 ms
+2026-05-09T16:13:28.516+05:30  INFO 11980 --- [tax-service] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-09T16:13:29.057+05:30  INFO 11980 --- [tax-service] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-05-09T16:13:29.359+05:30  INFO 11980 --- [tax-service] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-05-09T16:13:31.226+05:30  INFO 11980 --- [tax-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09T16:13:31.459+05:30  INFO 11980 --- [tax-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-09T16:13:32.643+05:30  INFO 11980 --- [tax-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7bb25046
+2026-05-09T16:13:32.658+05:30  INFO 11980 --- [tax-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-09T16:13:32.908+05:30  WARN 11980 --- [tax-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09T16:13:39.955+05:30  INFO 11980 --- [tax-service] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09T16:13:40.324+05:30  INFO 11980 --- [tax-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09T16:13:50.899+05:30  WARN 11980 --- [tax-service] [           main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 6f2d724c-9ddb-4f66-a224-9ea22c6fe265
+Using generated security password: 07e7888d-be7e-42ac-97d7-5a5551307c2f
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2026-05-08T20:28:27.120+05:30  INFO 2768 --- [tax-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2026-05-08T20:28:28.348+05:30  INFO 2768 --- [tax-service] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3b802baa, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@109941fa, org.springframework.security.web.context.SecurityContextHolderFilter@421c4c3e, org.springframework.security.web.header.HeaderWriterFilter@5d8de155, org.springframework.web.filter.CorsFilter@27103726, org.springframework.security.web.authentication.logout.LogoutFilter@7ebf5bf, com.rbf.product.common.security.SharedJwtAuthenticationFilter@2dac2e1b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@295e989, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@472d7f34, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2df6d461, org.springframework.security.web.session.SessionManagementFilter@76fa3dd8, org.springframework.security.web.access.ExceptionTranslationFilter@7b7268db, org.springframework.security.web.access.intercept.AuthorizationFilter@6e591c03]
-2026-05-08T20:28:35.382+05:30  INFO 2768 --- [tax-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8089 (http) with context path ''
-2026-05-08T20:28:35.463+05:30  INFO 2768 --- [tax-service] [           main] c.rbf.product.tax.TaxServiceApplication  : Started TaxServiceApplication in 214.321 seconds (process running for 226.284)
-2026-05-08T20:29:18.741+05:30  INFO 2768 --- [tax-service] [nio-8089-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-05-08T20:29:18.745+05:30  INFO 2768 --- [tax-service] [nio-8089-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-05-08T20:29:18.758+05:30  INFO 2768 --- [tax-service] [nio-8089-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
-2026-05-08T20:29:18.914+05:30  INFO 2768 --- [tax-service] [nio-8089-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
-2026-05-08T20:29:19.124+05:30  WARN 2768 --- [tax-service] [nio-8089-exec-2] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/actuator/health' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
-2026-05-08T20:29:20.802+05:30  INFO 2768 --- [tax-service] [nio-8089-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=1889 orgId=null
-2026-05-08T20:33:41.134+05:30  INFO 2768 --- [tax-service] [nio-8089-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
-2026-05-08T20:33:41.250+05:30  INFO 2768 --- [tax-service] [nio-8089-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=117 orgId=null
-2026-05-08T20:35:49.584+05:30  INFO 2768 --- [tax-service] [nio-8089-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
-2026-05-08T20:35:49.611+05:30  INFO 2768 --- [tax-service] [nio-8089-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=27 orgId=null
-2026-05-08T20:36:03.839+05:30  INFO 2768 --- [tax-service] [nio-8089-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
-2026-05-08T20:36:03.864+05:30  INFO 2768 --- [tax-service] [nio-8089-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=25 orgId=null
-2026-05-08T20:36:45.407+05:30  INFO 2768 --- [tax-service] [nio-8089-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
-2026-05-08T20:36:45.437+05:30  INFO 2768 --- [tax-service] [nio-8089-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=30 orgId=null
+2026-05-09T16:13:56.772+05:30  INFO 11980 --- [tax-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2026-05-09T16:13:57.273+05:30  INFO 11980 --- [tax-service] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1201c2f6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@cbf9cc1, org.springframework.security.web.context.SecurityContextHolderFilter@5e2abb58, org.springframework.security.web.header.HeaderWriterFilter@50cb64d5, org.springframework.web.filter.CorsFilter@4ae93e38, org.springframework.security.web.authentication.logout.LogoutFilter@5d8de155, com.rbf.product.common.security.SharedJwtAuthenticationFilter@1cee2e10, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@45bde54d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@94ba90a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ddeeb78, org.springframework.security.web.session.SessionManagementFilter@7f794b0f, org.springframework.security.web.access.ExceptionTranslationFilter@280cb0b4, org.springframework.security.web.access.intercept.AuthorizationFilter@1f748d43]
+2026-05-09T16:14:05.131+05:30  INFO 11980 --- [tax-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8089 (http) with context path ''
+2026-05-09T16:14:05.300+05:30  INFO 11980 --- [tax-service] [           main] c.rbf.product.tax.TaxServiceApplication  : Started TaxServiceApplication in 107.008 seconds (process running for 116.059)
+2026-05-09T16:14:44.662+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-09T16:14:44.674+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-09T16:14:44.737+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 60 ms
+2026-05-09T16:14:44.868+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:14:44.970+05:30  WARN 11980 --- [tax-service] [nio-8089-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/actuator/health' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2026-05-09T16:14:46.285+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=1418 orgId=null
+2026-05-09T16:15:50.640+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:15:50.655+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=15 orgId=null
+2026-05-09T16:16:04.701+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:16:04.718+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=17 orgId=null
+2026-05-09T16:16:34.062+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/tax/slabs orgId=1778322793251
+2026-05-09T16:16:36.295+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/tax/slabs status=200 durationMs=2234 orgId=1778322793251
+2026-05-09T16:20:13.915+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/tax/slabs orgId=1778322793251
+2026-05-09T16:20:13.992+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/tax/slabs status=200 durationMs=77 orgId=1778322793251
+2026-05-09T16:22:49.197+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:22:49.242+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=45 orgId=null
+2026-05-09T16:24:27.039+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:24:27.049+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=10 orgId=null
+2026-05-09T16:24:35.389+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/calculate orgId=1778322793251
+2026-05-09T16:24:36.101+05:30  WARN 11980 --- [tax-service] [nio-8089-exec-5] c.r.p.c.e.GlobalExceptionHandler         : Illegal argument path=/tax/calculate message=No active tax regime configured
+2026-05-09T16:24:36.126+05:30  WARN 11980 --- [tax-service] [nio-8089-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/calculate status=400 durationMs=737 orgId=1778322793251
+2026-05-09T16:24:37.944+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/calculate orgId=1778322793251
+2026-05-09T16:24:37.957+05:30  WARN 11980 --- [tax-service] [nio-8089-exec-4] c.r.p.c.e.GlobalExceptionHandler         : Illegal argument path=/tax/calculate message=No active tax regime configured
+2026-05-09T16:24:37.959+05:30  WARN 11980 --- [tax-service] [nio-8089-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/calculate status=400 durationMs=16 orgId=1778322793251
+2026-05-09T16:24:41.753+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-6] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/calculate orgId=1778322793251
+2026-05-09T16:24:41.781+05:30  WARN 11980 --- [tax-service] [nio-8089-exec-6] c.r.p.c.e.GlobalExceptionHandler         : Illegal argument path=/tax/calculate message=No active tax regime configured
+2026-05-09T16:24:41.789+05:30  WARN 11980 --- [tax-service] [nio-8089-exec-6] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/calculate status=400 durationMs=36 orgId=1778322793251
+2026-05-09T16:25:31.368+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/ orgId=null
+2026-05-09T16:25:31.385+05:30  WARN 11980 --- [tax-service] [nio-8089-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/ status=401 durationMs=17 orgId=null
+2026-05-09T16:25:31.554+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-8] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/favicon.ico orgId=null
+2026-05-09T16:25:31.566+05:30  WARN 11980 --- [tax-service] [nio-8089-exec-8] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/favicon.ico status=401 durationMs=12 orgId=null
+2026-05-09T16:29:49.582+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:29:49.674+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=92 orgId=null
+2026-05-09T16:30:04.020+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:30:04.032+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=12 orgId=null
+2026-05-09T16:30:25.608+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/tax/slabs orgId=1778322793251
+2026-05-09T16:30:25.756+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/tax/slabs status=200 durationMs=148 orgId=1778322793251
+2026-05-09T16:31:18.347+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:31:18.369+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=21 orgId=null
+2026-05-09T16:31:31.613+05:30  INFO 11980 --- [tax-service] [io-8089-exec-10] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:31:31.630+05:30  INFO 11980 --- [tax-service] [io-8089-exec-10] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=17 orgId=null
+2026-05-09T16:31:51.135+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/tax/slabs orgId=1778322793251
+2026-05-09T16:31:51.190+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/tax/slabs status=200 durationMs=55 orgId=1778322793251
+2026-05-09T16:31:53.275+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/countries orgId=1778322793251
+2026-05-09T16:31:53.485+05:30 ERROR 11980 --- [tax-service] [nio-8089-exec-7] c.r.p.c.e.GlobalExceptionHandler         : Unhandled exception path=/tax/countries
+
+org.springframework.security.access.AccessDeniedException: Access Denied
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.attemptAuthorization(AuthorizationManagerBeforeMethodInterceptor.java:256) ~[spring-security-core-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.invoke(AuthorizationManagerBeforeMethodInterceptor.java:197) ~[spring-security-core-6.2.0.jar!/:6.2.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar!/:6.1.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.1.jar!/:6.1.1]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717) ~[spring-aop-6.1.1.jar!/:6.1.1]
+	at com.rbf.product.tax.controller.TaxController$$SpringCGLIB$$0.createCountry(<generated>) ~[!/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:254) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:182) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.1.jar!/:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917) ~[spring-webmvc-6.1.1.jar!/:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829) ~[spring-webmvc-6.1.1.jar!/:6.1.1]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.1.jar!/:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.1.jar!/:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.1.jar!/:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.1.jar!/:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.1.jar!/:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.1.jar!/:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.16.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at com.rbf.product.common.security.SharedJwtAuthenticationFilter.doFilterInternal(SharedJwtAuthenticationFilter.java:51) ~[common-service-0.0.1-SNAPSHOT.jar!/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.0.jar!/:6.2.0]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at com.rbf.product.common.logging.ApiLoggingFilter.doFilterInternal(ApiLoggingFilter.java:29) ~[common-service-0.0.1-SNAPSHOT.jar!/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar!/:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2026-05-09T16:31:53.500+05:30 ERROR 11980 --- [tax-service] [nio-8089-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/countries status=500 durationMs=225 orgId=1778322793251
+2026-05-09T16:33:31.433+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:33:31.443+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=12 orgId=null
+2026-05-09T16:33:46.327+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:33:46.335+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=8 orgId=null
+2026-05-09T16:34:00.110+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/tax/slabs orgId=1778322793251
+2026-05-09T16:34:00.165+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/tax/slabs status=200 durationMs=56 orgId=1778322793251
+2026-05-09T16:34:01.584+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-8] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/countries orgId=1778322793251
+2026-05-09T16:34:02.069+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-8] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/countries status=201 durationMs=485 orgId=1778322793251
+2026-05-09T16:34:02.073+05:30  INFO 11980 --- [tax-service] [io-8089-exec-10] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/tax/regimes orgId=1778322793251
+2026-05-09T16:34:02.088+05:30  INFO 11980 --- [tax-service] [io-8089-exec-10] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/tax/regimes status=200 durationMs=15 orgId=1778322793251
+2026-05-09T16:34:02.097+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/regimes orgId=1778322793251
+2026-05-09T16:34:02.140+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/regimes status=201 durationMs=43 orgId=1778322793251
+2026-05-09T16:34:02.159+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/slabs orgId=1778322793251
+2026-05-09T16:34:02.227+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/slabs status=201 durationMs=68 orgId=1778322793251
+2026-05-09T16:34:02.238+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/slabs orgId=1778322793251
+2026-05-09T16:34:02.252+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/slabs status=201 durationMs=14 orgId=1778322793251
+2026-05-09T16:34:02.269+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/slabs orgId=1778322793251
+2026-05-09T16:34:02.282+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/slabs status=201 durationMs=13 orgId=1778322793251
+2026-05-09T16:34:02.297+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/tax/slabs orgId=1778322793251
+2026-05-09T16:34:02.349+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/tax/slabs status=200 durationMs=52 orgId=1778322793251
+2026-05-09T16:34:29.360+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/calculate orgId=1778322793251
+2026-05-09T16:34:29.414+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/calculate status=200 durationMs=54 orgId=1778322793251
+2026-05-09T16:34:31.807+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-6] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/calculate orgId=1778322793251
+2026-05-09T16:34:31.843+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-6] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/calculate status=200 durationMs=37 orgId=1778322793251
+2026-05-09T16:34:37.523+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/calculate orgId=1778322793251
+2026-05-09T16:34:37.556+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/calculate status=200 durationMs=33 orgId=1778322793251
+2026-05-09T16:34:38.768+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-8] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/calculate orgId=1778322793251
+2026-05-09T16:34:38.799+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-8] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/calculate status=200 durationMs=30 orgId=1778322793251
+2026-05-09T16:34:39.415+05:30  INFO 11980 --- [tax-service] [io-8089-exec-10] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/calculate orgId=1778322793251
+2026-05-09T16:34:39.453+05:30  INFO 11980 --- [tax-service] [io-8089-exec-10] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/calculate status=200 durationMs=38 orgId=1778322793251
+2026-05-09T16:34:39.480+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/invoice-breakups orgId=1778322793251
+2026-05-09T16:34:39.691+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/invoice-breakups status=201 durationMs=211 orgId=1778322793251
+2026-05-09T16:36:03.919+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:36:03.961+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=42 orgId=null
+2026-05-09T16:36:15.562+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:36:15.574+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=12 orgId=null
+2026-05-09T16:36:41.200+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/calculate orgId=1778322793251
+2026-05-09T16:36:41.293+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/calculate status=200 durationMs=93 orgId=1778322793251
+2026-05-09T16:36:43.949+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-8] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/calculate orgId=1778322793251
+2026-05-09T16:36:43.980+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-8] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/calculate status=200 durationMs=31 orgId=1778322793251
+2026-05-09T16:36:49.859+05:30  INFO 11980 --- [tax-service] [io-8089-exec-10] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/calculate orgId=1778322793251
+2026-05-09T16:36:49.905+05:30  INFO 11980 --- [tax-service] [io-8089-exec-10] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/calculate status=200 durationMs=46 orgId=1778322793251
+2026-05-09T16:36:49.993+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/calculate orgId=1778322793251
+2026-05-09T16:36:50.024+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/calculate status=200 durationMs=31 orgId=1778322793251
+2026-05-09T16:36:50.220+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/calculate orgId=1778322793251
+2026-05-09T16:36:50.248+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/calculate status=200 durationMs=28 orgId=1778322793251
+2026-05-09T16:36:50.269+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/tax/invoice-breakups orgId=1778322793251
+2026-05-09T16:36:50.295+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/tax/invoice-breakups status=201 durationMs=26 orgId=1778322793251
+2026-05-09T16:40:07.983+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/tax/slabs orgId=1778325001565
+2026-05-09T16:40:08.076+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/tax/slabs status=200 durationMs=94 orgId=1778325001565
+2026-05-09T16:40:41.718+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-6] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:40:41.737+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-6] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=19 orgId=null
+2026-05-09T16:42:25.626+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-8] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:42:25.656+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-8] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=31 orgId=null
+2026-05-09T16:42:38.539+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:42:38.574+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=35 orgId=null
+2026-05-09T16:43:03.443+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/invoices/2/tax-breakup orgId=1778322793251
+2026-05-09T16:43:03.534+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/invoices/2/tax-breakup status=200 durationMs=91 orgId=1778322793251
+2026-05-09T16:44:56.170+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:44:56.222+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=52 orgId=null
+2026-05-09T16:47:17.590+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-6] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/invoices/2/tax-breakup orgId=1778322793251
+2026-05-09T16:47:17.682+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-6] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/invoices/2/tax-breakup status=200 durationMs=92 orgId=1778322793251
+2026-05-09T16:57:48.270+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-8] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/tax/slabs orgId=1778324225514
+2026-05-09T16:57:48.395+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-8] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/tax/slabs status=200 durationMs=126 orgId=1778324225514
+2026-05-09T16:58:50.808+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/tax/slabs orgId=1778324225514
+2026-05-09T16:58:50.841+05:30  INFO 11980 --- [tax-service] [nio-8089-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/tax/slabs status=200 durationMs=33 orgId=1778324225514
+^C

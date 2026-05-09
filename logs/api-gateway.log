@@ -7,45 +7,109 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.0)
 
-2026-05-08T20:25:06.208+05:30  INFO 3276 --- [api-gateway] [           main] c.r.p.gateway.ApiGatewayApplication      : Starting ApiGatewayApplication using Java 17.0.10 with PID 3276 (D:\Products\rbf-erp\product\api-gateway\target\api-gateway-0.0.1-SNAPSHOT.jar started by balud in D:\Products\rbf-erp\product)
-2026-05-08T20:25:06.243+05:30  INFO 3276 --- [api-gateway] [           main] c.r.p.gateway.ApiGatewayApplication      : No active profile set, falling back to 1 default profile: "default"
-2026-05-08T20:26:24.406+05:30  INFO 3276 --- [api-gateway] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-05-08T20:26:24.787+05:30  INFO 3276 --- [api-gateway] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-05-08T20:26:24.809+05:30  INFO 3276 --- [api-gateway] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
-2026-05-08T20:26:27.833+05:30  INFO 3276 --- [api-gateway] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-05-08T20:26:27.886+05:30  INFO 3276 --- [api-gateway] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 79081 ms
-2026-05-08T20:27:01.223+05:30  INFO 3276 --- [api-gateway] [           main] o.s.boot.web.servlet.RegistrationBean    : Filter jwtValidationFilterRegistration was not registered (disabled)
-2026-05-08T20:27:23.498+05:30  WARN 3276 --- [api-gateway] [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+2026-05-09T16:12:25.273+05:30  INFO 19332 --- [api-gateway] [           main] c.r.p.gateway.ApiGatewayApplication      : Starting ApiGatewayApplication using Java 17.0.10 with PID 19332 (D:\Products\rbf-erp\product\api-gateway\target\api-gateway-0.0.1-SNAPSHOT.jar started by balud in D:\Products\rbf-erp\product)
+2026-05-09T16:12:25.303+05:30  INFO 19332 --- [api-gateway] [           main] c.r.p.gateway.ApiGatewayApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T16:13:03.676+05:30  INFO 19332 --- [api-gateway] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-05-09T16:13:03.980+05:30  INFO 19332 --- [api-gateway] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T16:13:03.980+05:30  INFO 19332 --- [api-gateway] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-05-09T16:13:06.475+05:30  INFO 19332 --- [api-gateway] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-05-09T16:13:06.518+05:30  INFO 19332 --- [api-gateway] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 39731 ms
+2026-05-09T16:13:16.527+05:30  INFO 19332 --- [api-gateway] [           main] o.s.boot.web.servlet.RegistrationBean    : Filter jwtValidationFilterRegistration was not registered (disabled)
+2026-05-09T16:13:27.469+05:30  WARN 19332 --- [api-gateway] [           main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 12f0f4f1-3569-4f62-99f5-6196fd344e91
+Using generated security password: f17dda68-fb1f-4e7c-82a2-97d2c6dfa6d5
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2026-05-08T20:27:30.405+05:30  INFO 3276 --- [api-gateway] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2026-05-08T20:27:31.230+05:30  INFO 3276 --- [api-gateway] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@25109608, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1d637673, org.springframework.security.web.context.SecurityContextHolderFilter@5aa6da2, org.springframework.security.web.header.HeaderWriterFilter@42cc420b, org.springframework.web.filter.CorsFilter@2913ca3e, org.springframework.security.web.authentication.logout.LogoutFilter@3f06ebe0, com.rbf.product.gateway.filter.JwtValidationFilter@24876a7e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@74ce7fdf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4e6cbdf1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@636dbfe7, org.springframework.security.web.session.SessionManagementFilter@37ffe4f3, org.springframework.security.web.access.ExceptionTranslationFilter@14485747, org.springframework.security.web.access.intercept.AuthorizationFilter@6451a288]
-2026-05-08T20:27:56.575+05:30  INFO 3276 --- [api-gateway] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2026-05-08T20:27:56.892+05:30  INFO 3276 --- [api-gateway] [           main] c.r.p.gateway.ApiGatewayApplication      : Started ApiGatewayApplication in 182.594 seconds (process running for 190.87)
-2026-05-08T20:28:34.029+05:30  INFO 3276 --- [api-gateway] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-05-08T20:28:34.036+05:30  INFO 3276 --- [api-gateway] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-05-08T20:28:34.065+05:30  INFO 3276 --- [api-gateway] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 23 ms
-2026-05-08T20:28:34.261+05:30  INFO 3276 --- [api-gateway] [nio-8080-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
-2026-05-08T20:28:34.705+05:30  WARN 3276 --- [api-gateway] [nio-8080-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/actuator/health' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
-2026-05-08T20:28:34.964+05:30  WARN 3276 --- [api-gateway] [nio-8080-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/actuator/health' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
-2026-05-08T20:28:36.635+05:30  INFO 3276 --- [api-gateway] [nio-8080-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=2375 orgId=null
-2026-05-08T20:33:31.392+05:30  INFO 3276 --- [api-gateway] [nio-8080-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
-2026-05-08T20:33:31.551+05:30  INFO 3276 --- [api-gateway] [nio-8080-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=165 orgId=null
-2026-05-08T20:35:48.297+05:30  INFO 3276 --- [api-gateway] [nio-8080-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
-2026-05-08T20:35:48.316+05:30  INFO 3276 --- [api-gateway] [nio-8080-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=19 orgId=null
-2026-05-08T20:35:58.402+05:30  INFO 3276 --- [api-gateway] [nio-8080-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
-2026-05-08T20:35:58.431+05:30  INFO 3276 --- [api-gateway] [nio-8080-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=29 orgId=null
-2026-05-08T20:36:17.149+05:30  INFO 3276 --- [api-gateway] [nio-8080-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API request method=POST path=/api/auth/login orgId=null
-2026-05-08T20:36:18.378+05:30  WARN 3276 --- [api-gateway] [nio-8080-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API response method=POST path=/api/auth/login status=400 durationMs=1229 orgId=null
-2026-05-08T20:36:26.036+05:30  INFO 3276 --- [api-gateway] [io-8080-exec-10] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/api/products orgId=null
-2026-05-08T20:36:26.046+05:30  WARN 3276 --- [api-gateway] [io-8080-exec-10] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/api/products status=401 durationMs=10 orgId=null
-2026-05-08T20:36:36.313+05:30  INFO 3276 --- [api-gateway] [nio-8080-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
-2026-05-08T20:36:36.341+05:30  INFO 3276 --- [api-gateway] [nio-8080-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=28 orgId=null
-2026-05-08T20:37:32.059+05:30  INFO 3276 --- [api-gateway] [nio-8080-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/ orgId=null
-2026-05-08T20:37:32.093+05:30  WARN 3276 --- [api-gateway] [nio-8080-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/ status=401 durationMs=34 orgId=null
-2026-05-08T20:37:32.234+05:30  INFO 3276 --- [api-gateway] [nio-8080-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/favicon.ico orgId=null
-2026-05-08T20:37:32.247+05:30  WARN 3276 --- [api-gateway] [nio-8080-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/favicon.ico status=401 durationMs=13 orgId=null
+2026-05-09T16:13:59.031+05:30  INFO 19332 --- [api-gateway] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2026-05-09T16:14:02.235+05:30  INFO 19332 --- [api-gateway] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1850f2da, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@38d42ab7, org.springframework.security.web.context.SecurityContextHolderFilter@5a13f1f7, org.springframework.security.web.header.HeaderWriterFilter@2bf3ec4, org.springframework.web.filter.CorsFilter@6ace919c, org.springframework.security.web.authentication.logout.LogoutFilter@7b5833ee, com.rbf.product.gateway.filter.JwtValidationFilter@73608eb0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6cbdd1c5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3316527e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4005e485, org.springframework.security.web.session.SessionManagementFilter@13908f9c, org.springframework.security.web.access.ExceptionTranslationFilter@6f2d3391, org.springframework.security.web.access.intercept.AuthorizationFilter@7dd3981e]
+2026-05-09T16:14:23.518+05:30  INFO 19332 --- [api-gateway] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-05-09T16:14:23.648+05:30  INFO 19332 --- [api-gateway] [           main] c.r.p.gateway.ApiGatewayApplication      : Started ApiGatewayApplication in 128.302 seconds (process running for 136.439)
+2026-05-09T16:14:24.888+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-09T16:14:24.894+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-09T16:14:24.916+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2026-05-09T16:14:25.084+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:14:25.262+05:30  WARN 19332 --- [api-gateway] [nio-8080-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/actuator/health' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2026-05-09T16:14:25.375+05:30  WARN 19332 --- [api-gateway] [nio-8080-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/actuator/health' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2026-05-09T16:14:26.725+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=1642 orgId=null
+2026-05-09T16:15:45.879+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:15:45.966+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=89 orgId=null
+2026-05-09T16:15:59.785+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:15:59.798+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=13 orgId=null
+2026-05-09T16:16:31.909+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-6] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/reports/dashboard orgId=1778322793251
+2026-05-09T16:16:38.858+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-6] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/reports/dashboard status=200 durationMs=6949 orgId=1778322793251
+2026-05-09T16:19:52.087+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/reports/dashboard orgId=1778322793251
+2026-05-09T16:19:52.729+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/reports/dashboard status=200 durationMs=643 orgId=1778322793251
+2026-05-09T16:22:44.013+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-8] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:22:44.061+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-8] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=48 orgId=null
+2026-05-09T16:24:26.030+05:30  INFO 19332 --- [api-gateway] [io-8080-exec-10] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/reports/dashboard orgId=1778322793251
+2026-05-09T16:24:26.297+05:30  INFO 19332 --- [api-gateway] [io-8080-exec-10] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/reports/dashboard status=200 durationMs=267 orgId=1778322793251
+2026-05-09T16:24:27.110+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:24:27.130+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=20 orgId=null
+2026-05-09T16:25:25.952+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/ orgId=null
+2026-05-09T16:25:26.008+05:30  WARN 19332 --- [api-gateway] [nio-8080-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/ status=401 durationMs=56 orgId=null
+2026-05-09T16:25:26.326+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/favicon.ico orgId=null
+2026-05-09T16:25:26.343+05:30  WARN 19332 --- [api-gateway] [nio-8080-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/favicon.ico status=401 durationMs=17 orgId=null
+2026-05-09T16:29:45.297+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:29:45.365+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=71 orgId=null
+2026-05-09T16:30:00.694+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:30:00.707+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=13 orgId=null
+2026-05-09T16:30:23.966+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/reports/dashboard orgId=1778322793251
+2026-05-09T16:30:24.314+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/reports/dashboard status=200 durationMs=348 orgId=1778322793251
+2026-05-09T16:31:14.836+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:31:14.851+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=15 orgId=null
+2026-05-09T16:31:28.412+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:31:28.423+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=11 orgId=null
+2026-05-09T16:31:48.347+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/reports/dashboard orgId=1778322793251
+2026-05-09T16:31:48.677+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/reports/dashboard status=200 durationMs=330 orgId=1778322793251
+2026-05-09T16:33:27.746+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-8] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:33:27.781+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-8] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=36 orgId=null
+2026-05-09T16:33:43.187+05:30  INFO 19332 --- [api-gateway] [io-8080-exec-10] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:33:43.205+05:30  INFO 19332 --- [api-gateway] [io-8080-exec-10] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=18 orgId=null
+2026-05-09T16:33:58.911+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/reports/dashboard orgId=1778322793251
+2026-05-09T16:33:59.188+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/reports/dashboard status=200 durationMs=278 orgId=1778322793251
+2026-05-09T16:36:00.393+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:36:00.442+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=49 orgId=null
+2026-05-09T16:36:12.470+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-6] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:36:12.491+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-6] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=21 orgId=null
+2026-05-09T16:36:35.578+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-8] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/reports/dashboard orgId=1778322793251
+2026-05-09T16:36:36.222+05:30 ERROR 19332 --- [api-gateway] [nio-8080-exec-8] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/reports/dashboard status=500 durationMs=644 orgId=1778322793251
+2026-05-09T16:37:44.687+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/reports/dashboard orgId=1778322793251
+2026-05-09T16:37:44.861+05:30 ERROR 19332 --- [api-gateway] [nio-8080-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/reports/dashboard status=500 durationMs=175 orgId=1778322793251
+2026-05-09T16:40:06.226+05:30  INFO 19332 --- [api-gateway] [io-8080-exec-10] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/reports/dashboard orgId=1778325001565
+2026-05-09T16:40:06.409+05:30  INFO 19332 --- [api-gateway] [io-8080-exec-10] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/reports/dashboard status=200 durationMs=186 orgId=1778325001565
+2026-05-09T16:40:26.142+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/reports/dashboard orgId=1778322793251
+2026-05-09T16:40:26.430+05:30 ERROR 19332 --- [api-gateway] [nio-8080-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/reports/dashboard status=500 durationMs=289 orgId=1778322793251
+2026-05-09T16:40:27.129+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/reports/dashboard orgId=1778322793251
+2026-05-09T16:40:27.224+05:30 ERROR 19332 --- [api-gateway] [nio-8080-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/reports/dashboard status=500 durationMs=95 orgId=1778322793251
+2026-05-09T16:40:41.560+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:40:41.575+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=16 orgId=null
+2026-05-09T16:42:21.963+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:42:21.999+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=36 orgId=null
+2026-05-09T16:42:34.539+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:42:34.574+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-7] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=35 orgId=null
+2026-05-09T16:42:53.886+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/reports/dashboard orgId=1778322793251
+2026-05-09T16:42:55.184+05:30  INFO 19332 --- [api-gateway] [io-8080-exec-10] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/reports/dashboard orgId=1778322793251
+2026-05-09T16:42:55.633+05:30  INFO 19332 --- [api-gateway] [io-8080-exec-10] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/reports/dashboard status=200 durationMs=449 orgId=1778322793251
+2026-05-09T16:42:55.639+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/reports/dashboard status=200 durationMs=1753 orgId=1778322793251
+2026-05-09T16:44:52.236+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/actuator/health orgId=null
+2026-05-09T16:44:52.304+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/actuator/health status=200 durationMs=69 orgId=null
+2026-05-09T16:46:36.885+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/ orgId=null
+2026-05-09T16:46:36.898+05:30  WARN 19332 --- [api-gateway] [nio-8080-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/ status=401 durationMs=13 orgId=null
+2026-05-09T16:47:11.509+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/ orgId=null
+2026-05-09T16:47:11.517+05:30  WARN 19332 --- [api-gateway] [nio-8080-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/ status=401 durationMs=8 orgId=null
+2026-05-09T16:47:11.567+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/favicon.ico orgId=null
+2026-05-09T16:47:11.575+05:30  WARN 19332 --- [api-gateway] [nio-8080-exec-5] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/favicon.ico status=401 durationMs=8 orgId=null
+2026-05-09T16:47:30.222+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-6] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/ orgId=null
+2026-05-09T16:47:30.232+05:30  WARN 19332 --- [api-gateway] [nio-8080-exec-6] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/ status=401 durationMs=10 orgId=null
+2026-05-09T16:55:27.874+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/reports/dashboard orgId=1778324225514
+2026-05-09T16:55:28.751+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-9] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/reports/dashboard status=200 durationMs=879 orgId=1778324225514
+2026-05-09T16:57:29.678+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/reports/dashboard orgId=1778324225514
+2026-05-09T16:57:29.869+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-1] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/reports/dashboard status=200 durationMs=191 orgId=1778324225514
+2026-05-09T16:57:33.151+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/reports/dashboard orgId=1778324225514
+2026-05-09T16:57:33.317+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-2] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/reports/dashboard status=200 durationMs=166 orgId=1778324225514
+2026-05-09T17:01:00.719+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/reports/dashboard orgId=1778324225514
+2026-05-09T17:01:00.901+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-3] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/reports/dashboard status=200 durationMs=182 orgId=1778324225514
+2026-05-09T17:01:06.966+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API request method=GET path=/reports/dashboard orgId=1778324225514
+2026-05-09T17:01:07.131+05:30  INFO 19332 --- [api-gateway] [nio-8080-exec-4] c.r.p.common.logging.ApiLoggingFilter    : API response method=GET path=/reports/dashboard status=200 durationMs=164 orgId=1778324225514
 ^C

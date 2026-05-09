@@ -27,10 +27,7 @@ public class JwtValidationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
-        if (!properties.getJwt().isEnabled()
-                || request.getRequestURI().startsWith("/auth")
-                || request.getRequestURI().startsWith("/api/auth")
-                || request.getRequestURI().startsWith("/actuator")) {
+        if (!properties.getJwt().isEnabled() || isPublicEndpoint(request)) {
             filterChain.doFilter(request, response);
             return;
         }
@@ -55,5 +52,13 @@ public class JwtValidationFilter extends OncePerRequestFilter {
         }
 
         filterChain.doFilter(request, response);
+    }
+
+    private boolean isPublicEndpoint(HttpServletRequest request) {
+        String uri = request.getRequestURI();
+        return uri.startsWith("/auth")
+                || uri.startsWith("/api/auth")
+                || uri.startsWith("/actuator")
+                || ("POST".equalsIgnoreCase(request.getMethod()) && uri.equals("/api/organizations"));
     }
 }

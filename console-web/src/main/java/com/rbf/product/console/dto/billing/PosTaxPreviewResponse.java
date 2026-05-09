@@ -12,6 +12,7 @@ public class PosTaxPreviewResponse {
     private BigDecimal sgst = BigDecimal.ZERO;
     private BigDecimal igst = BigDecimal.ZERO;
     private BigDecimal totalTax = BigDecimal.ZERO;
+    private BigDecimal roundOff = BigDecimal.ZERO;
     private BigDecimal total = BigDecimal.ZERO;
     private List<Object> breakups = new ArrayList<>();
 
@@ -29,6 +30,8 @@ public class PosTaxPreviewResponse {
     public void setIgst(BigDecimal igst) { this.igst = igst; }
     public BigDecimal getTotalTax() { return totalTax; }
     public void setTotalTax(BigDecimal totalTax) { this.totalTax = totalTax; }
+    public BigDecimal getRoundOff() { return roundOff; }
+    public void setRoundOff(BigDecimal roundOff) { this.roundOff = roundOff; }
     public BigDecimal getTotal() { return total; }
     public void setTotal(BigDecimal total) { this.total = total; }
     public List<Object> getBreakups() { return breakups; }

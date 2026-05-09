@@ -76,6 +76,10 @@ public class BillingPosService {
                 addBreakups(response, list);
             }
         }
+        BigDecimal rawTotal = response.getTotal();
+        BigDecimal roundedTotal = rawTotal.setScale(0, RoundingMode.HALF_UP).setScale(2, RoundingMode.UNNECESSARY);
+        response.setRoundOff(roundedTotal.subtract(rawTotal).setScale(2, RoundingMode.HALF_UP));
+        response.setTotal(roundedTotal);
         response.setBreakups(breakups);
         return response;
     }

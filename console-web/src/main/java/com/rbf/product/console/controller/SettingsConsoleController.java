@@ -115,4 +115,10 @@ public class SettingsConsoleController {
     public Map<String, Object> saveTaxSlab(HttpSession session, @RequestBody Map<String, Object> request) {
         return settingsClient.saveTaxSlab(session, request);
     }
+
+    @PostMapping("/settings/api/tax-bootstrap/india-gst")
+    @ResponseBody
+    public Map<String, Object> setupIndiaGst(HttpSession session) {
+        return settingsClient.setupIndiaGst(session);
+    }
 }

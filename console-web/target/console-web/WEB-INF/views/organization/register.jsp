@@ -51,7 +51,7 @@
             </div>
             <div class="col-md-4">
                 <label class="form-label" for="email">Email</label>
-                <input class="form-control" id="email" name="email" type="email" value="<c:out value='${organizationForm.email}'/>" required>
+                <input class="form-control" id="email" name="email" type="text" inputmode="email" autocomplete="email" value="<c:out value='${organizationForm.email}'/>" required>
             </div>
             <div class="col-md-4">
                 <label class="form-label" for="phone">Phone</label>

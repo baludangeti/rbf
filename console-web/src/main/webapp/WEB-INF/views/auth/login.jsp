@@ -27,7 +27,7 @@
     <form method="post" action="${pageContext.request.contextPath}/login">
         <div class="mb-3">
             <label class="form-label" for="orgId">Organization ID</label>
-            <input class="form-control" id="orgId" name="orgId" type="number" min="1" value="<c:out value='${loginForm.orgId}'/>" required>
+            <input class="form-control" id="orgId" name="orgId" type="text" inputmode="numeric" pattern="[0-9]+" value="<c:out value='${loginForm.orgId}'/>" required>
         </div>
         <div class="mb-3">
             <label class="form-label" for="username">Username</label>

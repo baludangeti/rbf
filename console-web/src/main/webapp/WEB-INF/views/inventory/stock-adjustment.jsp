@@ -8,12 +8,12 @@
 </div>
 <section class="content-panel">
     <form id="stockAdjustmentForm" class="row g-3">
-        <div class="col-md-3"><label class="form-label">Product ID</label><input class="form-control" name="productId" type="number" min="1" required></div>
+        <div class="col-md-3"><label class="form-label">Product ID</label><input class="form-control" name="productId" type="text" inputmode="numeric" required></div>
         <div class="col-md-2"><label class="form-label">Store</label><input class="form-control" name="storeCode" value="MAIN"></div>
-        <div class="col-md-2"><label class="form-label">Quantity</label><input class="form-control" name="quantity" type="number" min="0" required></div>
+        <div class="col-md-2"><label class="form-label">Quantity</label><input class="form-control" name="quantity" type="text" inputmode="numeric" required></div>
         <div class="col-md-2"><label class="form-label">Action</label><select class="form-select" name="adjustmentType"><option value="ADD">Add</option><option value="DEDUCT">Deduct</option><option value="SET">Set</option></select></div>
         <div class="col-md-3"><label class="form-label">Reference No</label><input class="form-control" name="referenceNo"></div>
-        <div class="col-md-2"><label class="form-label">Low Stock Threshold</label><input class="form-control" name="lowStockThreshold" type="number" min="0"></div>
+        <div class="col-md-2"><label class="form-label">Low Stock Threshold</label><input class="form-control" name="lowStockThreshold" type="text" inputmode="numeric"></div>
         <div class="col-md-2"><label class="form-label">Expiry Date</label><input class="form-control" name="expiryDate" type="date"></div>
         <div class="col-md-6"><label class="form-label">Reason</label><input class="form-control" name="reason"></div>
         <div class="col-md-2 d-flex align-items-end">

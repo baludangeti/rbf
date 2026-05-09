@@ -23,11 +23,11 @@
                         </div>
                         <div class="col-md-3">
                             <label class="form-label" for="price">Price</label>
-                            <input class="form-control" id="price" name="price" type="number" min="0.01" step="0.01" required>
+                            <input class="form-control" id="price" name="price" type="text" inputmode="decimal" required>
                         </div>
                         <div class="col-md-3">
                             <label class="form-label" for="gst">GST %</label>
-                            <input class="form-control" id="gst" name="gst" type="number" min="0" step="0.01" required>
+                            <input class="form-control" id="gst" name="gst" type="text" inputmode="decimal" required>
                         </div>
                         <div class="col-md-3">
                             <label class="form-label" for="hsnSacCode">HSN/SAC</label>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="col-md-3">
                             <label class="form-label" for="lowStockThreshold">Low Stock Threshold</label>
-                            <input class="form-control" id="lowStockThreshold" name="lowStockThreshold" type="number" min="0" step="1">
+                            <input class="form-control" id="lowStockThreshold" name="lowStockThreshold" type="text" inputmode="numeric">
                         </div>
                         <div class="col-md-4">
                             <label class="form-label" for="categoryId">Category</label>

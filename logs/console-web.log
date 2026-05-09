@@ -7,26 +7,26 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.0)
 
-2026-05-08T20:25:03.342+05:30  INFO 21220 --- [console-web] [           main] c.r.p.console.ConsoleWebApplication      : Starting ConsoleWebApplication using Java 17.0.10 with PID 21220 (D:\Products\rbf-erp\product\console-web\target\console-web.war started by balud in D:\Products\rbf-erp\product)
-2026-05-08T20:25:03.413+05:30  INFO 21220 --- [console-web] [           main] c.r.p.console.ConsoleWebApplication      : No active profile set, falling back to 1 default profile: "default"
-2026-05-08T20:25:50.667+05:30  INFO 21220 --- [console-web] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
-2026-05-08T20:25:51.118+05:30  INFO 21220 --- [console-web] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-05-08T20:25:51.132+05:30  INFO 21220 --- [console-web] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
-2026-05-08T20:26:20.679+05:30  INFO 21220 --- [console-web] [           main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2026-05-08T20:26:35.042+05:30  INFO 21220 --- [console-web] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-05-08T20:26:35.401+05:30  INFO 21220 --- [console-web] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 90445 ms
-2026-05-08T20:27:28.797+05:30  WARN 21220 --- [console-web] [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+2026-05-09T16:35:50.106+05:30  INFO 24036 --- [console-web] [           main] c.r.p.console.ConsoleWebApplication      : Starting ConsoleWebApplication using Java 17.0.10 with PID 24036 (D:\Products\rbf-erp\product\console-web\target\console-web.war started by balud in D:\Products\rbf-erp\product)
+2026-05-09T16:35:50.113+05:30  INFO 24036 --- [console-web] [           main] c.r.p.console.ConsoleWebApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-09T16:35:52.761+05:30  INFO 24036 --- [console-web] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2026-05-09T16:35:52.778+05:30  INFO 24036 --- [console-web] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-09T16:35:52.779+05:30  INFO 24036 --- [console-web] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-05-09T16:35:54.029+05:30  INFO 24036 --- [console-web] [           main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2026-05-09T16:35:54.509+05:30  INFO 24036 --- [console-web] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-05-09T16:35:54.518+05:30  INFO 24036 --- [console-web] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4221 ms
+2026-05-09T16:35:55.102+05:30  WARN 24036 --- [console-web] [           main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 958ad510-b511-4b88-adeb-e173ee9ee7c1
+Using generated security password: f21bf6a9-27eb-4971-a59e-79fc5f2917d3
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2026-05-08T20:27:34.672+05:30  INFO 21220 --- [console-web] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2026-05-08T20:27:35.032+05:30  INFO 21220 --- [console-web] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@65bd19bf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@74697863, org.springframework.security.web.context.SecurityContextHolderFilter@26e8ff8c, org.springframework.security.web.header.HeaderWriterFilter@4966bab1, org.springframework.web.filter.CorsFilter@7d7ceca8, org.springframework.security.web.authentication.logout.LogoutFilter@4a216eb4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@590d6c76, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@25791d40, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2bba35ef, org.springframework.security.web.access.ExceptionTranslationFilter@38e83838, org.springframework.security.web.access.intercept.AuthorizationFilter@2c47a053]
-2026-05-08T20:27:39.220+05:30  INFO 21220 --- [console-web] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path ''
-2026-05-08T20:27:39.363+05:30  INFO 21220 --- [console-web] [           main] c.r.p.console.ConsoleWebApplication      : Started ConsoleWebApplication in 165.049 seconds (process running for 173.262)
-2026-05-08T20:29:22.016+05:30  INFO 21220 --- [console-web] [nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-05-08T20:29:22.052+05:30  INFO 21220 --- [console-web] [nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-05-08T20:29:22.256+05:30  INFO 21220 --- [console-web] [nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 185 ms
-2026-05-08T20:29:22.722+05:30  WARN 21220 --- [console-web] [nio-8090-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/actuator/health' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
-^C
+2026-05-09T16:35:55.981+05:30  INFO 24036 --- [console-web] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2026-05-09T16:35:56.013+05:30  INFO 24036 --- [console-web] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@787d1f9c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2becfd4c, org.springframework.security.web.context.SecurityContextHolderFilter@f882465, org.springframework.security.web.header.HeaderWriterFilter@18dcb8a7, org.springframework.web.filter.CorsFilter@7c71c889, org.springframework.security.web.authentication.logout.LogoutFilter@1d289d3f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a50c746, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3709748f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4cc8d70d, org.springframework.security.web.access.ExceptionTranslationFilter@b379bc6, org.springframework.security.web.access.intercept.AuthorizationFilter@1eb9bf60]
+2026-05-09T16:35:56.682+05:30  INFO 24036 --- [console-web] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path ''
+2026-05-09T16:35:56.707+05:30  INFO 24036 --- [console-web] [           main] c.r.p.console.ConsoleWebApplication      : Started ConsoleWebApplication in 7.586 seconds (process running for 8.511)
+2026-05-09T16:36:04.359+05:30  INFO 24036 --- [console-web] [nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-09T16:36:04.360+05:30  INFO 24036 --- [console-web] [nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-09T16:36:04.362+05:30  INFO 24036 --- [console-web] [nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-05-09T16:36:04.401+05:30  WARN 24036 --- [console-web] [nio-8090-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/actuator/health' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2026-05-09T16:44:50.068+05:30  WARN 24036 --- [console-web] [nio-8090-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]

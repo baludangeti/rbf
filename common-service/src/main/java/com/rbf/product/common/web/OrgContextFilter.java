@@ -17,7 +17,7 @@ public class OrgContextFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
-        if (request.getRequestURI().startsWith("/api/auth")) {
+        if (isOrgHeaderOptional(request)) {
             filterChain.doFilter(request, response);
             return;
         }
@@ -36,5 +36,13 @@ public class OrgContextFilter extends OncePerRequestFilter {
         } finally {
             OrgContext.clear();
         }
+    }
+
+    private boolean isOrgHeaderOptional(HttpServletRequest request) {
+        String uri = request.getRequestURI();
+        return uri.startsWith("/api/auth")
+                || uri.startsWith("/api/users/admin")
+                || uri.startsWith("/api/roles/defaults")
+                || uri.startsWith("/actuator");
     }
 }

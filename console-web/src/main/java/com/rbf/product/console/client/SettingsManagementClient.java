@@ -9,8 +9,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Component
 public class SettingsManagementClient {
@@ -53,6 +57,32 @@ public class SettingsManagementClient {
     public Map<String, Object> saveTaxSlab(HttpSession session, Map<String, Object> request) {
         return exchangeMap(session, taxBaseUrl + "/tax/slabs", HttpMethod.POST, request);
     }
+    public List<Map<String, Object>> taxRegimes(HttpSession session) { return getList(session, taxBaseUrl + "/tax/regimes"); }
+    public Map<String, Object> saveTaxRegime(HttpSession session, Map<String, Object> request) {
+        return exchangeMap(session, taxBaseUrl + "/tax/regimes", HttpMethod.POST, request);
+    }
+    public Map<String, Object> saveTaxCountry(HttpSession session, Map<String, Object> request) {
+        return exchangeMap(session, taxBaseUrl + "/tax/countries", HttpMethod.POST, request);
+    }
+    public Map<String, Object> setupIndiaGst(HttpSession session) {
+        saveTaxCountry(session, Map.of(
+                "countryCode", "INDIA",
+                "countryName", "India",
+                "currencyCode", "INR",
+                "active", true
+        ));
+        Long regimeId = findIndiaRegimeId(session)
+                .orElseGet(() -> Long.valueOf(String.valueOf(saveTaxRegime(session, Map.of(
+                        "countryCode", "INDIA",
+                        "regimeName", "India GST",
+                        "regimeType", "GST",
+                        "active", true
+                )).get("id"))));
+        createIndiaSlab(session, regimeId, "CGST", "Central GST 2.5%", "2.50");
+        createIndiaSlab(session, regimeId, "SGST", "State GST 2.5%", "2.50");
+        createIndiaSlab(session, regimeId, "IGST", "Integrated GST 5%", "5.00");
+        return Map.of("regimeId", regimeId, "message", "India GST setup completed");
+    }
 
     private Map<String, Object> getMap(HttpSession session, String url) { return backendClient.getMap(session, url); }
     private List<Map<String, Object>> getList(HttpSession session, String url) {
@@ -60,5 +90,24 @@ public class SettingsManagementClient {
     }
     private Map<String, Object> exchangeMap(HttpSession session, String url, HttpMethod method, Object request) {
         return backendClient.exchangeMap(session, url, method, request);
+    }
+
+    private Optional<Long> findIndiaRegimeId(HttpSession session) {
+        return taxRegimes(session).stream()
+                .filter(regime -> "INDIA".equalsIgnoreCase(String.valueOf(regime.get("countryCode"))))
+                .findFirst()
+                .map(regime -> Long.valueOf(String.valueOf(regime.get("id"))));
+    }
+
+    private void createIndiaSlab(HttpSession session, Long regimeId, String taxType, String taxName, String taxRate) {
+        Map<String, Object> request = new LinkedHashMap<>();
+        request.put("countryCode", "INDIA");
+        request.put("taxRegimeId", regimeId);
+        request.put("taxType", taxType);
+        request.put("taxName", taxName);
+        request.put("taxRate", new BigDecimal(taxRate));
+        request.put("effectiveFrom", LocalDate.now().minusDays(1).toString());
+        request.put("active", true);
+        saveTaxSlab(session, request);
     }
 }

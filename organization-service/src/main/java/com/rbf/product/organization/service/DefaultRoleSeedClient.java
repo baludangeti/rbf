@@ -1,6 +1,7 @@
 package com.rbf.product.organization.service;
 
 import com.rbf.product.common.web.RestClientUtil;
+import com.rbf.product.common.tenant.OrgContext;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -18,6 +19,6 @@ public class DefaultRoleSeedClient {
     }
 
     public void seedDefaultRoles() {
-        restClient.post(authBaseUrl + "/api/roles/defaults", null, Void.class);
+        restClient.post(authBaseUrl + "/api/roles/defaults/" + OrgContext.requireOrgId(), null, Void.class);
     }
 }

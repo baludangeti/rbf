@@ -41,22 +41,26 @@ public class BillingService {
         this.serviceClient = serviceClient;
     }
 
+    @Transactional(readOnly = true)
     public List<InvoiceResponse> list() {
         return invoiceRepository.findByOrgIdOrderByCreatedAtDesc(OrgContext.requireOrgId()).stream()
                 .map(this::toResponse)
                 .toList();
     }
 
+    @Transactional(readOnly = true)
     public Page<InvoiceResponse> listPage(Pageable pageable) {
         return invoiceRepository.findByOrgId(OrgContext.requireOrgId(), pageable)
                 .map(this::toResponse);
     }
 
+    @Transactional(readOnly = true)
     public Page<InvoiceResponse> listByStatusPage(InvoiceStatus status, Pageable pageable) {
         return invoiceRepository.findByOrgIdAndStatus(OrgContext.requireOrgId(), status, pageable)
                 .map(this::toResponse);
     }
 
+    @Transactional(readOnly = true)
     public List<InvoiceResponse> listDrafts() {
         return invoiceRepository.findByOrgIdAndStatusOrderByUpdatedAtDesc(OrgContext.requireOrgId(), InvoiceStatus.DRAFT)
                 .stream()
@@ -64,6 +68,7 @@ public class BillingService {
                 .toList();
     }
 
+    @Transactional(readOnly = true)
     public List<InvoiceResponse> listHeld() {
         return invoiceRepository.findByOrgIdAndStatusOrderByUpdatedAtDesc(OrgContext.requireOrgId(), InvoiceStatus.HELD)
                 .stream()
@@ -71,6 +76,7 @@ public class BillingService {
                 .toList();
     }
 
+    @Transactional(readOnly = true)
     public InvoiceResponse get(Long id) {
         Invoice invoice = invoiceRepository.findByIdAndOrgId(id, OrgContext.requireOrgId())
                 .orElseThrow(() -> new IllegalArgumentException("Invoice not found"));

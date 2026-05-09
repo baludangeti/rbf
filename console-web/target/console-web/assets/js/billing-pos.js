@@ -31,7 +31,7 @@
                 "<td>" + item.name + "</td>" +
                 "<td>" + (item.sku || "") + "</td>" +
                 "<td class='text-end'>" + money(item.price) + "</td>" +
-                "<td class='text-end'><input class='form-control form-control-sm text-end cart-qty-input' data-index='" + index + "' type='number' min='1' value='" + item.qty + "'></td>" +
+                "<td class='text-end'><input class='form-control form-control-sm text-end cart-qty-input' data-index='" + index + "' type='text' inputmode='numeric' value='" + item.qty + "'></td>" +
                 "<td class='text-end'>" + money(item.gst) + "%</td>" +
                 "<td class='text-end'>" + money(lineTotal(item)) + "</td>" +
                 "<td class='text-end'><button class='btn btn-sm btn-outline-danger remove-cart-item' data-index='" + index + "'>Remove</button></td>" +
@@ -49,6 +49,7 @@
         $("#sgstValue").text(money(summary.sgst));
         $("#igstValue").text(money(summary.igst));
         $("#taxValue").text(money(summary.totalTax));
+        $("#roundOffValue").text(money(summary.roundOff));
         $("#totalValue").text(money(summary.total));
         taxPreview = summary;
     }
@@ -88,7 +89,15 @@
         }).done(updateSummary).fail(function () {
             var subtotal = cart.reduce(function (sum, item) { return sum + lineTotal(item); }, 0);
             var discount = subtotal * Number($("#discountPercentage").val() || 0) / 100;
-            updateSummary({subtotal: subtotal, discountAmount: discount, taxableAmount: subtotal - discount, total: subtotal - discount});
+            var rawTotal = subtotal - discount;
+            var roundedTotal = Math.round(rawTotal);
+            updateSummary({
+                subtotal: subtotal,
+                discountAmount: discount,
+                taxableAmount: rawTotal,
+                roundOff: roundedTotal - rawTotal,
+                total: roundedTotal
+            });
         });
     }
 

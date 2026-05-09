@@ -33,6 +33,6 @@ exit /b 0
 set SERVICE=%~1
 set ARTIFACT=%~2
 echo Starting %SERVICE%...
-start "%SERVICE%" cmd /c "java -jar "%ROOT%%SERVICE%\target\%ARTIFACT%" > "%LOG_DIR%\%SERVICE%.log" 2>&1"
+start "%SERVICE%" cmd /c "java -jar ""%ROOT%%SERVICE%\target\%ARTIFACT%"" > ""%LOG_DIR%\%SERVICE%.log"" 2>&1"
 timeout /t 5 /nobreak > nul
 exit /b 0

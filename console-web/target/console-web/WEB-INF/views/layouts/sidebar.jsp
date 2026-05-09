@@ -11,6 +11,7 @@
             <a href="${pageContext.request.contextPath}/console/user-roles">User Roles</a>
         </c:if>
         <a href="${pageContext.request.contextPath}/console/settings">Settings</a>
+        <a href="${pageContext.request.contextPath}/console/system-health">System Health</a>
         <a href="${pageContext.request.contextPath}/console/tax-settings">Tax Settings</a>
         <a href="${pageContext.request.contextPath}/console/invoice-settings">Invoice Settings</a>
         <a href="${pageContext.request.contextPath}/console/store-settings">Store Settings</a>

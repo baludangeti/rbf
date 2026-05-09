@@ -19,7 +19,7 @@
             </div>
             <div class="col-md-2">
                 <label class="form-label" for="quickQtyInput">Qty</label>
-                <input class="form-control form-control-lg" id="quickQtyInput" type="number" min="1" value="1">
+                <input class="form-control form-control-lg" id="quickQtyInput" type="text" inputmode="numeric" value="1">
             </div>
             <div class="col-md-2">
                 <button class="btn btn-primary btn-lg w-100" id="searchProductBtn" type="button">Search</button>
@@ -63,7 +63,7 @@
         <div class="summary-row"><span>Subtotal</span><strong id="subtotalValue">0.00</strong></div>
         <div class="summary-row">
             <span>Discount %</span>
-            <input id="discountPercentage" class="form-control form-control-sm" type="number" value="0" min="0" max="100" step="0.01">
+            <input id="discountPercentage" class="form-control form-control-sm" type="text" inputmode="decimal" value="0">
         </div>
         <div class="summary-row"><span>Discount</span><strong id="discountValue">0.00</strong></div>
         <div class="summary-row"><span>Taxable</span><strong id="taxableValue">0.00</strong></div>
@@ -71,6 +71,7 @@
         <div class="summary-row"><span>SGST</span><strong id="sgstValue">0.00</strong></div>
         <div class="summary-row"><span>IGST</span><strong id="igstValue">0.00</strong></div>
         <div class="summary-row"><span>Total Tax</span><strong id="taxValue">0.00</strong></div>
+        <div class="summary-row"><span>Round Off</span><strong id="roundOffValue">0.00</strong></div>
         <div class="summary-row total"><span>Total</span><strong id="totalValue">0.00</strong></div>
 
         <label class="form-label mt-3" for="paymentMode">Payment Mode</label>

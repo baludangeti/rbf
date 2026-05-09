@@ -32,7 +32,8 @@ public class DefaultRoleSeeder {
         permissionService.seedSystemPermissions();
         Role admin = seedRole(orgId, "ADMIN", 2, null,
                 List.of("PRODUCT_CREATE", "PRODUCT_VIEW", "PRODUCT_UPDATE", "PRODUCT_DELETE",
-                        "BILLING_CREATE", "BILLING_VIEW", "INVENTORY_UPDATE", "USER_MANAGE"));
+                        "BILLING_CREATE", "BILLING_VIEW", "INVENTORY_UPDATE", "USER_MANAGE",
+                        "REPORT_VIEW", "ACCOUNTING_VIEW"));
         Role manager = seedRole(orgId, "MANAGER", 3, admin.getId(),
                 List.of("PRODUCT_VIEW", "BILLING_VIEW", "INVENTORY_UPDATE", "REPORT_VIEW"));
         seedRole(orgId, "CASHIER", 4, manager.getId(),
@@ -40,14 +41,14 @@ public class DefaultRoleSeeder {
     }
 
     private Role seedRole(Long orgId, String name, Integer level, Long parentId, List<String> permissions) {
-        return roleRepository.findByOrgIdAndRoleName(orgId, name).orElseGet(() -> {
-            OrgContext.setOrgId(orgId);
-            RoleRequest request = new RoleRequest();
-            request.setRoleName(name);
-            request.setRoleLevel(level);
-            request.setParentRoleId(parentId);
-            request.setPermissions(permissions);
-            return roleService.create(request);
-        });
+        OrgContext.setOrgId(orgId);
+        RoleRequest request = new RoleRequest();
+        request.setRoleName(name);
+        request.setRoleLevel(level);
+        request.setParentRoleId(parentId);
+        request.setPermissions(permissions);
+        return roleRepository.findByOrgIdAndRoleName(orgId, name)
+                .map(role -> roleService.update(role.getId(), request))
+                .orElseGet(() -> roleService.create(request));
     }
 }

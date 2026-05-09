@@ -1,7 +1,10 @@
 <%@ include file="../layouts/app-start.jsp" %>
 <div class="page-heading">
     <div><h1>Tax Settings</h1><p>Configure GST/tax slabs and HSN/SAC mapping.</p></div>
-    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taxSlabModal">New Tax Slab</button>
+    <div class="d-flex gap-2">
+        <button class="btn btn-outline-primary" id="setupIndiaGstBtn" type="button">Setup India GST</button>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taxSlabModal">New Tax Slab</button>
+    </div>
 </div>
 <section class="content-panel">
     <table class="table table-hover align-middle">

@@ -110,6 +110,20 @@
                 loadTaxSlabs();
             });
         });
+        $("#setupIndiaGstBtn").on("click", function () {
+            var $button = $(this).prop("disabled", true).text("Setting up...");
+            request({url: url("/tax-bootstrap/india-gst"), method: "POST"})
+                .done(function () {
+                    $("#settingsTaxSlabBody").html("<tr><td colspan='7' class='text-success'>India GST setup completed. Reloading slabs...</td></tr>");
+                    loadTaxSlabs();
+                })
+                .fail(function (xhr) {
+                    $("#settingsTaxSlabBody").html("<tr><td colspan='7' class='text-danger'>" + escapeHtml((xhr.responseJSON && xhr.responseJSON.message) || "Unable to setup India GST.") + "</td></tr>");
+                })
+                .always(function () {
+                    $button.prop("disabled", false).text("Setup India GST");
+                });
+        });
         $("#storeSettingForm").on("submit", function (event) {
             event.preventDefault();
             request({url: url("/stores"), method: "POST", data: JSON.stringify(formJson($(this)))}).done(function () {
