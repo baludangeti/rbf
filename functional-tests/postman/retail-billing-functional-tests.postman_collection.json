@@ -1,0 +1,1860 @@
+{
+  "info": {
+    "name": "Retail Billing Functional Tests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "if (!pm.environment.get('runId')) {",
+          "  const runId = Date.now().toString();",
+          "  pm.environment.set('runId', runId);",
+          "  pm.environment.set('unique', runId);",
+          "  pm.environment.set('adminUsername', 'admin_a_' + runId);",
+          "  pm.environment.set('orgCodeA', 'ORGA' + runId);",
+          "  pm.environment.set('orgCodeB', 'ORGB' + runId);",
+          "}"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "00 Health",
+      "item": [
+        {
+          "name": "Gateway health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{gatewayUrl}}/actuator/health",
+              "host": [
+                "{{gatewayUrl}}/actuator/health"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Auth health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{authUrl}}/actuator/health",
+              "host": [
+                "{{authUrl}}/actuator/health"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Organization health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{organizationUrl}}/actuator/health",
+              "host": [
+                "{{organizationUrl}}/actuator/health"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Product health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{productUrl}}/actuator/health",
+              "host": [
+                "{{productUrl}}/actuator/health"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Inventory health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{inventoryUrl}}/actuator/health",
+              "host": [
+                "{{inventoryUrl}}/actuator/health"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Billing health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{billingUrl}}/actuator/health",
+              "host": [
+                "{{billingUrl}}/actuator/health"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Payment health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{paymentUrl}}/actuator/health",
+              "host": [
+                "{{paymentUrl}}/actuator/health"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Accounting health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{accountingUrl}}/actuator/health",
+              "host": [
+                "{{accountingUrl}}/actuator/health"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Report health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{reportUrl}}/actuator/health",
+              "host": [
+                "{{reportUrl}}/actuator/health"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Tax health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{taxUrl}}/actuator/health",
+              "host": [
+                "{{taxUrl}}/actuator/health"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Web console health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{consoleUrl}}/actuator/health",
+              "host": [
+                "{{consoleUrl}}/actuator/health"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "01 Organization Registration",
+      "item": [
+        {
+          "name": "Create organization A",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ORG-ID",
+                "value": "101"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{organizationUrl}}/api/organizations",
+              "host": [
+                "{{organizationUrl}}/api/organizations"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Postman Org A {{unique}}\",\n  \"code\": \"PMA{{unique}}\",\n  \"businessType\": \"RETAIL\",\n  \"gstin\": \"29ABCDE1234F1Z5\",\n  \"panNumber\": \"ABCDE1234F\",\n  \"email\": \"pma{{unique}}@example.com\",\n  \"phone\": \"9000000001\",\n  \"address\": \"A Street\",\n  \"city\": \"Bengaluru\",\n  \"state\": \"KA\",\n  \"country\": \"INDIA\",\n  \"pincode\": \"560001\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('created or duplicate conflict', () => pm.expect([201,400,409]).to.include(pm.response.code));",
+                  "if (pm.response.code === 201) { const r = pm.response.json(); pm.environment.set('orgId', r.orgId || r.id || 101); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create organization B",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ORG-ID",
+                "value": "202"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{organizationUrl}}/api/organizations",
+              "host": [
+                "{{organizationUrl}}/api/organizations"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Postman Org B {{unique}}\",\n  \"code\": \"PMB{{unique}}\",\n  \"businessType\": \"RETAIL\",\n  \"email\": \"pmb{{unique}}@example.com\",\n  \"city\": \"Mumbai\",\n  \"state\": \"MH\",\n  \"country\": \"INDIA\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('created or duplicate conflict', () => pm.expect([201,400,409]).to.include(pm.response.code));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create first ADMIN user",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ORG-ID",
+                "value": "101"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{authUrl}}/api/users/admin",
+              "host": [
+                "{{authUrl}}/api/users/admin"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orgId\": 101,\n  \"fullName\": \"Postman Admin A\",\n  \"email\": \"admina{{unique}}@example.com\",\n  \"phone\": \"9000000101\",\n  \"username\": \"admin_a_{{unique}}\",\n  \"password\": \"Admin@123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('admin created or duplicate', () => pm.expect([201,400,409]).to.include(pm.response.code));",
+                  "if (pm.response.code === 201) pm.environment.set('adminUsername', pm.response.json().username);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Duplicate organization code/email rejected",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ORG-ID",
+                "value": "101"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{organizationUrl}}/api/organizations",
+              "host": [
+                "{{organizationUrl}}/api/organizations"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Postman Org A Duplicate\",\n  \"code\": \"PMA{{unique}}\",\n  \"email\": \"pma{{unique}}@example.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('duplicate rejected', () => pm.expect([400,409,500]).to.include(pm.response.code));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "02 Login and Security",
+      "item": [
+        {
+          "name": "Login valid admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{authUrl}}/api/auth/login",
+              "host": [
+                "{{authUrl}}/api/auth/login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orgId\": 101,\n  \"username\": \"{{adminUsername}}\",\n  \"password\": \"Admin@123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('login ok', () => pm.response.to.have.status(200));",
+                  "const r = pm.response.json();",
+                  "pm.expect(r.token).to.exist;",
+                  "pm.expect(r.orgId).to.eql(101);",
+                  "pm.expect(r.roles).to.include('ADMIN');",
+                  "pm.environment.set('jwtToken', r.token);",
+                  "pm.environment.set('userId', r.userId);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login invalid password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{authUrl}}/api/auth/login",
+              "host": [
+                "{{authUrl}}/api/auth/login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orgId\": 101,\n  \"username\": \"{{adminUsername}}\",\n  \"password\": \"Wrong\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('invalid login rejected', () => pm.expect([400,401]).to.include(pm.response.code));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Protected API without token fails",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{gatewayUrl}}/api/products",
+              "host": [
+                "{{gatewayUrl}}/api/products"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('missing token rejected', () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Protected API with invalid token fails",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer invalid"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "101"
+              }
+            ],
+            "url": {
+              "raw": "{{gatewayUrl}}/api/products",
+              "host": [
+                "{{gatewayUrl}}/api/products"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('invalid token rejected', () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Tax settings without ACCOUNTING_VIEW forbidden for admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{gatewayUrl}}/api/tax/slabs",
+              "host": [
+                "{{gatewayUrl}}/api/tax/slabs"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"countryCode\": \"INDIA\",\n  \"regionCode\": \"KA\",\n  \"taxRegimeId\": 1,\n  \"taxName\": \"Forbidden CGST\",\n  \"taxType\": \"CGST\",\n  \"taxRate\": 2.5,\n  \"effectiveFrom\": \"2026-01-01\",\n  \"active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('permission denied or validation', () => pm.expect([403,400]).to.include(pm.response.code));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "03 Product and Inventory",
+      "item": [
+        {
+          "name": "Create category",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{productUrl}}/api/product-categories",
+              "host": [
+                "{{productUrl}}/api/product-categories"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Postman Grocery {{unique}}\",\n  \"hsnSacCode\": \"1001\",\n  \"active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('category created', () => pm.response.to.have.status(201));",
+                  "pm.environment.set('categoryId', pm.response.json().id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create product",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{productUrl}}/api/products",
+              "host": [
+                "{{productUrl}}/api/products"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sku\": \"PM-RICE-{{unique}}\",\n  \"barcode\": \"890{{unique}}\",\n  \"name\": \"Postman Rice {{unique}}\",\n  \"price\": 100,\n  \"gst\": 5,\n  \"categoryId\": \"{{categoryId}}\",\n  \"hsnSacCode\": \"1001\",\n  \"lowStockThreshold\": 5,\n  \"active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('product created', () => pm.response.to.have.status(201));",
+                  "const r = pm.response.json(); pm.environment.set('productId', r.id); pm.environment.set('productSku', r.sku); pm.environment.set('productBarcode', r.barcode);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search product by SKU",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{productUrl}}/api/products/sku/{{productSku}}",
+              "host": [
+                "{{productUrl}}/api/products/sku/{{productSku}}"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search product by barcode",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{productUrl}}/api/products/barcode/{{productBarcode}}",
+              "host": [
+                "{{productUrl}}/api/products/barcode/{{productBarcode}}"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Update product",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{productUrl}}/api/products/{{productId}}",
+              "host": [
+                "{{productUrl}}/api/products/{{productId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sku\": \"{{productSku}}\",\n  \"barcode\": \"{{productBarcode}}\",\n  \"name\": \"Postman Rice Updated {{unique}}\",\n  \"price\": 105,\n  \"gst\": 5,\n  \"categoryId\": \"{{categoryId}}\",\n  \"hsnSacCode\": \"1001\",\n  \"lowStockThreshold\": 5,\n  \"active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Add stock",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inventoryUrl}}/api/inventory/add",
+              "host": [
+                "{{inventoryUrl}}/api/inventory/add"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": \"{{productId}}\",\n  \"storeCode\": \"MAIN\",\n  \"quantity\": 20,\n  \"lowStockThreshold\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Check stock",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{inventoryUrl}}/api/inventory/{{productId}}",
+              "host": [
+                "{{inventoryUrl}}/api/inventory/{{productId}}"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('stock available', () => { pm.response.to.have.status(200); pm.expect(pm.response.json().quantity).to.be.at.least(20); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Prevent negative stock",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inventoryUrl}}/api/inventory/deduct",
+              "host": [
+                "{{inventoryUrl}}/api/inventory/deduct"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": \"{{productId}}\",\n  \"storeCode\": \"MAIN\",\n  \"quantity\": 99999\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('negative prevented', () => pm.expect([400,409,500]).to.include(pm.response.code));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Low stock alerts",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{inventoryUrl}}/api/inventory/alerts",
+              "host": [
+                "{{inventoryUrl}}/api/inventory/alerts"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "04 GST Tax",
+      "item": [
+        {
+          "name": "India intra-state CGST SGST calculation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{taxUrl}}/tax/calculate",
+              "host": [
+                "{{taxUrl}}/tax/calculate"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orgId\": 101,\n  \"sellerCountry\": \"INDIA\",\n  \"sellerRegion\": \"KA\",\n  \"customerCountry\": \"INDIA\",\n  \"customerRegion\": \"KA\",\n  \"customerType\": \"B2C\",\n  \"customerTaxExempt\": false,\n  \"reverseChargeApplicable\": false,\n  \"productId\": \"{{productId}}\",\n  \"productCategoryId\": \"{{categoryId}}\",\n  \"hsnSacCode\": \"1001\",\n  \"quantity\": 2,\n  \"unitPrice\": 100,\n  \"discountAmount\": 0,\n  \"currencyCode\": \"INR\",\n  \"exchangeRate\": 1,\n  \"transactionType\": \"DOMESTIC\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('cgst sgst calculated', () => { pm.response.to.have.status(200); const r = pm.response.json(); pm.expect(r.taxBreakups.length).to.be.at.least(2); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "India inter-state IGST calculation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{taxUrl}}/tax/calculate",
+              "host": [
+                "{{taxUrl}}/tax/calculate"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orgId\": 101,\n  \"sellerCountry\": \"INDIA\",\n  \"sellerRegion\": \"KA\",\n  \"customerCountry\": \"INDIA\",\n  \"customerRegion\": \"MH\",\n  \"customerType\": \"B2C\",\n  \"productId\": \"{{productId}}\",\n  \"productCategoryId\": \"{{categoryId}}\",\n  \"hsnSacCode\": \"1001\",\n  \"quantity\": 1,\n  \"unitPrice\": 100,\n  \"discountAmount\": 0,\n  \"currencyCode\": \"INR\",\n  \"exchangeRate\": 1,\n  \"transactionType\": \"DOMESTIC\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('igst calculated', () => { pm.response.to.have.status(200); pm.expect(pm.response.json().taxBreakups[0].taxType).to.eql('IGST'); });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "05 Billing Payment Accounting Reports",
+      "item": [
+        {
+          "name": "Create invoice",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{billingUrl}}/api/billing/invoices",
+              "host": [
+                "{{billingUrl}}/api/billing/invoices"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"productId\": \"{{productId}}\",\n      \"qty\": 2,\n      \"productCategoryId\": \"{{categoryId}}\",\n      \"hsnSacCode\": \"1001\"\n    }\n  ],\n  \"discount\": 5,\n  \"discountPercentage\": 0,\n  \"paymentAmount\": 100,\n  \"sellerCountry\": \"INDIA\",\n  \"sellerRegion\": \"KA\",\n  \"customerCountry\": \"INDIA\",\n  \"customerRegion\": \"KA\",\n  \"customerType\": \"B2C\",\n  \"currencyCode\": \"INR\",\n  \"exchangeRate\": 1,\n  \"transactionType\": \"DOMESTIC\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('invoice created', () => pm.response.to.have.status(201));",
+                  "const r = pm.response.json(); pm.environment.set('invoiceId', r.id); pm.environment.set('invoiceTotal', r.total);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "View invoice",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{billingUrl}}/api/billing/invoices/{{invoiceId}}",
+              "host": [
+                "{{billingUrl}}/api/billing/invoices/{{invoiceId}}"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invoice tax breakup persisted",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{taxUrl}}/invoices/{{invoiceId}}/tax-breakup",
+              "host": [
+                "{{taxUrl}}/invoices/{{invoiceId}}/tax-breakup"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Payment status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{paymentUrl}}/api/payments/invoice/{{invoiceId}}/status?invoiceTotal={{invoiceTotal}}",
+              "host": [
+                "{{paymentUrl}}/api/payments/invoice/{{invoiceId}}/status?invoiceTotal={{invoiceTotal}}"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Ledger entries",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{accountingUrl}}/api/accounting/ledger-entries",
+              "host": [
+                "{{accountingUrl}}/api/accounting/ledger-entries"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Dashboard report",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{reportUrl}}/api/reports/dashboard",
+              "host": [
+                "{{reportUrl}}/api/reports/dashboard"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "06 Multi Tenant and JSP",
+      "item": [
+        {
+          "name": "Org B cannot see Org A product by id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "202"
+              }
+            ],
+            "url": {
+              "raw": "{{productUrl}}/api/products/{{productId}}",
+              "host": [
+                "{{productUrl}}/api/products/{{productId}}"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('cross org blocked', () => pm.expect([401,403,404]).to.include(pm.response.code));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Console login page loads",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{consoleUrl}}/login",
+              "host": [
+                "{{consoleUrl}}/login"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Console organization registration page loads",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{consoleUrl}}/organization/register",
+              "host": [
+                "{{consoleUrl}}/organization/register"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Console dashboard without session redirects",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{consoleUrl}}/console/dashboard",
+              "host": [
+                "{{consoleUrl}}/console/dashboard"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('redirects or login shown', () => pm.expect([200,302]).to.include(pm.response.code));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "07 Optional Retail Modules",
+      "item": [
+        {
+          "name": "Create Customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{customerUrl}}/api/customers",
+              "host": [
+                "{{customerUrl}}/api/customers"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Functional Customer {{unique}}\",\n  \"email\": \"customer{{unique}}@example.com\",\n  \"phone\": \"9000000001\",\n  \"gstin\": \"29ABCDE1234F1Z5\",\n  \"billingAddress\": \"Bengaluru\",\n  \"shippingAddress\": \"Bengaluru\",\n  \"creditLimit\": 5000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.environment.get('runOptionalRetailModules') !== 'true') {",
+                  "  pm.execution.skipRequest();",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('customer accepted or module unavailable', function () { pm.expect([200,201,404,503]).to.include(pm.response.code); });",
+                  "if ([200,201].includes(pm.response.code)) pm.environment.set('customerId', pm.response.json().id || pm.response.json().data?.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Credit Account",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{customerCreditUrl}}/api/customer-credits/accounts",
+              "host": [
+                "{{customerCreditUrl}}/api/customer-credits/accounts"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"{{customerId}}\",\n  \"creditLimit\": 5000,\n  \"openingBalance\": 0,\n  \"active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.environment.get('runOptionalRetailModules') !== 'true') {",
+                  "  pm.execution.skipRequest();",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('credit account accepted or module unavailable', function () { pm.expect([200,201,400,404,503]).to.include(pm.response.code); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Validate Credit Limit",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{customerCreditUrl}}/api/customer-credits/validate",
+              "host": [
+                "{{customerCreditUrl}}/api/customer-credits/validate"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"{{customerId}}\",\n  \"amount\": 250\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.environment.get('runOptionalRetailModules') !== 'true') {",
+                  "  pm.execution.skipRequest();",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('credit validation accepted or module unavailable', function () { pm.expect([200,400,404,503]).to.include(pm.response.code); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Supplier",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{supplierUrl}}/api/suppliers",
+              "host": [
+                "{{supplierUrl}}/api/suppliers"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Functional Supplier {{unique}}\",\n  \"gstin\": \"29ABCDE1234F1Z5\",\n  \"email\": \"supplier{{unique}}@example.com\",\n  \"phone\": \"9000000002\",\n  \"address\": \"Bengaluru\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.environment.get('runOptionalRetailModules') !== 'true') {",
+                  "  pm.execution.skipRequest();",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('supplier accepted or module unavailable', function () { pm.expect([200,201,404,503]).to.include(pm.response.code); });",
+                  "if ([200,201].includes(pm.response.code)) pm.environment.set('supplierId', pm.response.json().id || pm.response.json().data?.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Purchase Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{purchaseUrl}}/api/purchases",
+              "host": [
+                "{{purchaseUrl}}/api/purchases"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"supplierId\": \"{{supplierId}}\",\n  \"invoiceNumber\": \"PUR-{{unique}}\",\n  \"purchaseDate\": \"2026-05-09\",\n  \"items\": [\n    {\n      \"productId\": \"{{productId}}\",\n      \"quantity\": 5,\n      \"unitPrice\": 80,\n      \"gstRate\": 18\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.environment.get('runOptionalRetailModules') !== 'true') {",
+                  "  pm.execution.skipRequest();",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('purchase accepted or module unavailable', function () { pm.expect([200,201,400,404,503]).to.include(pm.response.code); });",
+                  "if ([200,201].includes(pm.response.code)) pm.environment.set('purchaseId', pm.response.json().id || pm.response.json().data?.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create GRN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{purchaseUrl}}/api/purchases/{{purchaseId}}/grn",
+              "host": [
+                "{{purchaseUrl}}/api/purchases/{{purchaseId}}/grn"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"grnNumber\": \"GRN-{{unique}}\",\n  \"receivedDate\": \"2026-05-09\",\n  \"items\": [\n    {\n      \"productId\": \"{{productId}}\",\n      \"receivedQuantity\": 5\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.environment.get('runOptionalRetailModules') !== 'true') {",
+                  "  pm.execution.skipRequest();",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('grn accepted or module unavailable', function () { pm.expect([200,201,400,404,503]).to.include(pm.response.code); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Sales Return",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwtToken}}"
+              },
+              {
+                "key": "X-ORG-ID",
+                "value": "{{orgId}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{salesReturnUrl}}/api/sales-returns",
+              "host": [
+                "{{salesReturnUrl}}/api/sales-returns"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"invoiceId\": \"{{invoiceId}}\",\n  \"refundMode\": \"CASH\",\n  \"items\": [\n    {\n      \"invoiceItemId\": \"{{invoiceItemId}}\",\n      \"productId\": \"{{productId}}\",\n      \"quantity\": 1,\n      \"refundAmount\": 100\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.environment.get('runOptionalRetailModules') !== 'true') {",
+                  "  pm.execution.skipRequest();",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('sales return accepted or module unavailable', function () { pm.expect([200,201,400,404,503]).to.include(pm.response.code); });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

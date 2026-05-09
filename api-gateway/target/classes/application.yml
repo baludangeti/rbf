@@ -1,0 +1,74 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+gateway:
+  jwt:
+    enabled: true
+    secret: ${JWT_SECRET:change-this-secret-to-at-least-32-characters}
+  routes:
+    auth-api:
+      path-prefix: /api/auth
+      target-url: http://localhost:8081/api/auth
+    org-api:
+      path-prefix: /api/organizations
+      target-url: http://localhost:8082/api/organizations
+    product-api:
+      path-prefix: /api/products
+      target-url: http://localhost:8083/api/products
+    inventory-api:
+      path-prefix: /api/inventory
+      target-url: http://localhost:8084/api/inventory
+    billing-api:
+      path-prefix: /api/billing
+      target-url: http://localhost:8085/api/billing
+    payment-api:
+      path-prefix: /api/payments
+      target-url: http://localhost:8086/api/payments
+    accounting-api:
+      path-prefix: /api/accounting
+      target-url: http://localhost:8087/api/accounting
+    report-api:
+      path-prefix: /api/reports
+      target-url: http://localhost:8088/api/reports
+    tax-api:
+      path-prefix: /api/tax
+      target-url: http://localhost:8089/tax
+    auth:
+      path-prefix: /auth
+      target-url: http://localhost:8081/api/auth
+    products:
+      path-prefix: /products
+      target-url: http://localhost:8083/api/products
+    billing:
+      path-prefix: /billing
+      target-url: http://localhost:8085/api/billing
+    inventory:
+      path-prefix: /inventory
+      target-url: http://localhost:8084/api/inventory
+    payments:
+      path-prefix: /payments
+      target-url: http://localhost:8086/api/payments
+    tax:
+      path-prefix: /tax
+      target-url: http://localhost:8089/tax
+    reports:
+      path-prefix: /reports
+      target-url: http://localhost:8088/api/reports
+    accounting:
+      path-prefix: /accounting
+      target-url: http://localhost:8087/api/accounting
